@@ -3,7 +3,7 @@
 #	- in the absence of data files in expected location (/usr/share/espeak-data or $HOME/espeak-data) program segfaults
 #	
 Summary:	eSpeak - speech synthesizer for English and other languages
-Summary(pl):	eSpeak - syntezator mowy dla jêzyka anglieskiego i innych
+Summary(pl):	eSpeak - syntezator mowy dla jêzyka angielskiego i innych
 Name:		speak
 Version:	1.13
 Release:	0.1
@@ -49,7 +49,30 @@ as an alternative to Festival for example. As such, it can speak text
 which has been selected into the clipboard, or directly from the
 Konquerer browser or the Kate editor.
 
-#%description -l pl
+%description -l pl
+eSpeak to programowy syntezator mowy dla angielskiego i innych
+jêzyków. Odtwarza angielsk± mowê dobrej jako¶ci. U¿ywa innej metody
+syntezy ni¿ inne silniki TTS o otwartych ¼ród³ach i brzmi trochê
+inaczej. Nie jest mo¿e tak naturalny czy "g³adki", ale autor uwa¿a tê
+wymowê za czystsz± i ³atwiejsz± w s³uchaniu na d³u¿sz± metê.
+
+- Mo¿e dzia³aæ jako program z linii poleceñ do wymawiania tekstu z
+  pliku lub standardowego wej¶cia; dostêpna jest tak¿e wersja w
+  postaci biblioteki (nie w tym pakiecie).
+- Zawiera ró¿ne g³osy, a ich charakterystykê mo¿na zmieniaæ.
+- Potrafi tworzyæ pliki WAV z mow±.
+- Obs³ugiwany (ale nie w pe³ni) jest SSML (Speech Synthesis Markup
+  Language)  oraz HTML.
+- Ma³y rozmiar - program i jego dane, wraz z kilkoma jêzykami,
+  mieszcz± siê w oko³o 420kB.
+- Potrafi t³umaczyæ tekst na kody fonemów, wiêc mo¿e byæ zaadaptowany
+  jako frontend dla innych silników syntezy mowy.
+- Potencjalnie mo¿e nadawaæ siê dla innych jêzyków; kilka jest
+  do³±czonych w ró¿nym stadium zaawansowania. Mile widziana jest pomoc
+  od osób, dla których s± to jêzyki ojczyste.
+- Dostêpne s± narzêdzia programistyczne do tworzenia i dostrajania
+  danych dla fonemów.
+- Napisany w C++.
 
 %prep
 %setup -q -n %{name}-%{version}-source
