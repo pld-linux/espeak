@@ -38,9 +38,9 @@ periods.
   totals about 420 kbytes.
 - Can translate text to phoneme codes, so it could be adapted as a
   front end for another speech synthesis engine.
-- Potential for other languages. Several are included in varying
-  stages of progress. Help from native speakers for these or other
-  languages is welcomed.
+- Potential for other languages. Several are included (e.gj. polish
+  language) in varying stages of progress. Help from native speakers
+  for these or other languages is welcomed.
 - Development tools available for producing and tuning phoneme data.
 - Written in C++.
 
@@ -68,11 +68,16 @@ wymowê za czystsz± i ³atwiejsz± w s³uchaniu na d³u¿sz± metê.
 - Potrafi t³umaczyæ tekst na kody fonemów, wiêc mo¿e byæ zaadaptowany
   jako frontend dla innych silników syntezy mowy.
 - Potencjalnie mo¿e nadawaæ siê dla innych jêzyków; kilka jest
-  do³±czonych w ró¿nym stadium zaawansowania. Mile widziana jest pomoc
-  od osób, dla których s± to jêzyki ojczyste.
+  do³±czonych (na przyk³ad j.polski) w ró¿nym stadium zaawansowania.
+  Mile widziana jest pomoc od osób, dla których s± to jêzyki ojczyste.
 - Dostêpne s± narzêdzia programistyczne do tworzenia i dostrajania
   danych dla fonemów.
 - Napisany w C++.
+
+Dobrze pracuje jako "mówca" z systemem przetwarzania tekstu na mowê
+KDE (KTTS), na przyk³ad, jako alternatywa dla Festivala. Jako taki,
+mo¿e czytaæ na g³os tekst zaznaczony uprzednio do schowka lub
+bezpo¶rednio z przegl±darki Konqueror i edytora Kate.
 
 %prep
 %setup -q -n %{name}-%{version}-source
