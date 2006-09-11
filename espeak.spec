@@ -38,7 +38,7 @@ periods.
   totals about 420 kbytes.
 - Can translate text to phoneme codes, so it could be adapted as a
   front end for another speech synthesis engine.
-- Potential for other languages. Several are included (e.g. polish
+- Potential for other languages. Several are included (e.g. Polish
   language) in varying stages of progress. Help from native speakers
   for these or other languages is welcomed.
 - Development tools available for producing and tuning phoneme data.
