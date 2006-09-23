@@ -1,23 +1,25 @@
-# NOTES:
-#	- maybe espeak is better name for spec
-#	- in the absence of data files in expected location (/usr/share/espeak-data or $HOME/espeak-data) program segfaults
-#	
+#
+# Conditional build:
+%bcond_without	static_libs # don't build static libraries
+#
 Summary:	eSpeak - speech synthesizer for English and other languages
 Summary(pl):	eSpeak - syntezator mowy dla jêzyka angielskiego i innych
 Name:		speak
-Version:	1.13
-Release:	0.1
+Version:	1.14
+Release:	1
 License:	GPL v2
 Group:		Applications
 Source0:	http://dl.sourceforge.net/espeak/%{name}-%{version}-source.zip
-# Source0-md5:	1cd76ad278fa134eced57b865b72175b
+# Source0-md5:	9a52e2a00354474334adc36fe2fdd4c6
 Patch0:		%{name}-ac_am.patch
 URL:		http://espeak.sourceforge.net/
 BuildRequires:	autoconf
 BuildRequires:	automake
 BuildRequires:	libstdc++-devel
+BuildRequires:	libtool
 BuildRequires:	portaudio-devel >= 19
 BuildRequires:	unzip
+Requires:	%{name}-libs = %{version}-%{release}
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
@@ -79,6 +81,41 @@ KDE (KTTS), na przyk³ad, jako alternatywa dla Festivala. Jako taki,
 mo¿e czytaæ na g³os tekst zaznaczony uprzednio do schowka lub
 bezpo¶rednio z przegl±darki Konqueror i edytora Kate.
 
+%package libs
+Summary: eSpeak shared libraries
+Summary(pl): eSpeak - biblioteki
+Group:	Libraries
+
+%description libs
+eSpeak shared libraries.
+
+%description libs -l pl
+eSpeak - biblioteki dzielone.
+
+%package devel
+Summary:	eSpeak - development files
+Summary(pl):	eSpeak - pliki dla programistów
+Group:	Development/Libraries
+Requires:	%{name}-libs = %{version}-%{release}
+
+%description devel
+eSpeak - development files.
+
+%description devel -l pl
+eSpeak - pliki dla programistów.
+
+%package static
+Summary:	eSpeak - static libraries
+Summary(pl):	eSpeak - biblioteki statyczne
+Group:	Development/Libraries
+Requires:	%{name}-devel = %{version}-%{release}
+
+%description static
+eSpeak - static libraries.
+
+%description static -l pl
+eSpeak - biblioteki statyczne.
+
 %prep
 %setup -q -n %{name}-%{version}-source
 %patch -p1
@@ -86,11 +123,13 @@ bezpo¶rednio z przegl±darki Konqueror i edytora Kate.
 rm -f src/portaudio{18,19,}.h
 
 %build
+%{__libtoolize}
 %{__aclocal}
 %{__autoconf}
 %{__autoheader}
 %{__automake}
-%configure
+%configure \
+	--enable-static=%{?with_static_libs:yes}%{!?with_static_libs:no}
 %{__make}
 
 %install
@@ -102,6 +141,9 @@ rm -rf $RPM_BUILD_ROOT
 %clean
 rm -rf $RPM_BUILD_ROOT
 
+%post libs -p /sbin/ldconfig
+%postun libs -p /sbin/ldconfig
+
 %files
 %defattr(644,root,root,755)
 %doc ChangeLog ReadMe docs
@@ -109,6 +151,11 @@ rm -rf $RPM_BUILD_ROOT
 %dir %{_datadir}/e%{name}-data
 %dir %{_datadir}/e%{name}-data/voices
 %dir %{_datadir}/e%{name}-data/voices/en
+%{_datadir}/e%{name}-data/voices/af
+%{_datadir}/e%{name}-data/voices/cy
+%{_datadir}/e%{name}-data/voices/de
+%{_datadir}/e%{name}-data/voices/default
+%{_datadir}/e%{name}-data/voices/el
 %{_datadir}/e%{name}-data/voices/en/en-rp-f
 %{_datadir}/e%{name}-data/voices/en/en-wm-f
 %{_datadir}/e%{name}-data/voices/en/en-n
@@ -125,24 +172,39 @@ rm -rf $RPM_BUILD_ROOT
 %{_datadir}/e%{name}-data/voices/en/en-rp
 %{_datadir}/e%{name}-data/voices/en/en-n-f
 %{_datadir}/e%{name}-data/voices/en/en-wm
+%{_datadir}/e%{name}-data/voices/eo
 %{_datadir}/e%{name}-data/voices/es
 %{_datadir}/e%{name}-data/voices/it
 %{_datadir}/e%{name}-data/voices/pl
-%{_datadir}/e%{name}-data/voices/af
-%{_datadir}/e%{name}-data/voices/default
-%{_datadir}/e%{name}-data/voices/eo
-%{_datadir}/e%{name}-data/voices/de
-%{_datadir}/e%{name}-data/voices/el
+%{_datadir}/e%{name}-data/voices/ru
 %dir %{_datadir}/e%{name}-data/soundicons
 %{_datadir}/e%{name}-data/af_dict
+%{_datadir}/e%{name}-data/config
+%{_datadir}/e%{name}-data/cy_dict
 %{_datadir}/e%{name}-data/de_dict
 %{_datadir}/e%{name}-data/en_dict
 %{_datadir}/e%{name}-data/eo_dict
+%{_datadir}/e%{name}-data/el_dict
 %{_datadir}/e%{name}-data/es_dict
 %{_datadir}/e%{name}-data/it_dict
 %{_datadir}/e%{name}-data/phondata
 %{_datadir}/e%{name}-data/phonindex
 %{_datadir}/e%{name}-data/phontab
-%{_datadir}/e%{name}-data/config
 %{_datadir}/e%{name}-data/pl_dict
-%{_datadir}/e%{name}-data/el_dict
+%{_datadir}/e%{name}-data/ru_dict
+
+%files libs
+%defattr(644,root,root,755)
+%attr(755,root,root) %{_libdir}/lib*.so.*.*.*
+
+%files devel
+%defattr(644,root,root,755)
+%{_includedir}/*
+%attr(755,root,root) %{_libdir}/lib*.so
+%{_libdir}/lib*.la
+
+%if %{with static_libs}
+%files static
+%defattr(644,root,root,755)
+%{_libdir}/lib*.a
+%endif
