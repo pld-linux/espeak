@@ -12,6 +12,7 @@ Group:		Applications
 Source0:	http://dl.sourceforge.net/espeak/%{name}-%{version}-source.zip
 # Source0-md5:	9a52e2a00354474334adc36fe2fdd4c6
 Patch0:		%{name}-ac_am.patch
+Patch1:		%{name}-sys_includes.patch
 URL:		http://espeak.sourceforge.net/
 BuildRequires:	autoconf
 BuildRequires:	automake
@@ -118,7 +119,8 @@ eSpeak - biblioteki statyczne.
 
 %prep
 %setup -q -n %{name}-%{version}-source
-%patch -p1
+%patch0 -p1
+%patch1 -p1
 # remove pernicious headers to avoid using them during build instead of /usr/include/portaudio.h system header
 rm -f src/portaudio{18,19,}.h
 
