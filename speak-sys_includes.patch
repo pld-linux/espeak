@@ -35,20 +35,6 @@ diff -Nur o.speak-1.14-source/src/speak_lib.cpp n.speak-1.14-source/src/speak_li
  #ifndef __WIN32__
  #include <unistd.h>
  #endif
-diff -Nur o.speak-1.14-source/src/speech.h n.speak-1.14-source/src/speech.h
---- o.speak-1.14-source/src/speech.h	2006-09-21 20:00:41.000000000 +0200
-+++ n.speak-1.14-source/src/speech.h	2006-09-23 19:54:14.000000000 +0200
-@@ -36,7 +36,10 @@
- #endif
- 
- // will look for espeak_data directory here, and also in user's home directory
-+#include "config.h"
-+#ifndef PATH_ESPEAK_DATA
- #define PATH_ESPEAK_DATA  "/usr/share/espeak-data"
-+#endif
- 
- typedef unsigned short USHORT;
- typedef unsigned char  UCHAR;
 diff -Nur o.speak-1.14-source/src/voices.cpp n.speak-1.14-source/src/voices.cpp
 --- o.speak-1.14-source/src/voices.cpp	2006-09-21 20:00:42.000000000 +0200
 +++ n.speak-1.14-source/src/voices.cpp	2006-09-23 21:34:46.000000000 +0200

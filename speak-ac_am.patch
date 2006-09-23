@@ -56,7 +56,7 @@ diff -Nur o.speak-1.14-source/configure.ac n.speak-1.14-source/configure.ac
 +AC_OUTPUT
 diff -Nur o.speak-1.14-source/src/Makefile.am n.speak-1.14-source/src/Makefile.am
 --- o.speak-1.14-source/src/Makefile.am	1970-01-01 01:00:00.000000000 +0100
-+++ n.speak-1.14-source/src/Makefile.am	2006-09-23 21:14:54.000000000 +0200
++++ n.speak-1.14-source/src/Makefile.am	2006-09-23 22:18:52.000000000 +0200
 @@ -0,0 +1,19 @@
 +AM_CXXFLAGS = -Wall -pedantic -fno-exceptions
 +
@@ -71,7 +71,7 @@ diff -Nur o.speak-1.14-source/src/Makefile.am n.speak-1.14-source/src/Makefile.a
 +	synthdata.cpp synthesize.cpp translate.cpp tr_english.cpp \
 +	tr_languages.cpp voices.cpp wavegen.cpp
 +
-+libespeak_la_LDFLAGS = -version-info 15:1:14
++libespeak_la_LDFLAGS = -version-info 2:14:1
 +
 +# -fvisibility=hidden requires modern GCC which is not present in current PLD Ac
 +#libespeak_la_CXXFLAGS = $(AM_CXXFLAGS) -fvisibility=hidden
@@ -91,3 +91,4 @@ diff -Nur o.speak-1.14-source/src/speech.h n.speak-1.14-source/src/speech.h
  
  typedef unsigned short USHORT;
  typedef unsigned char  UCHAR;
+
