@@ -6,7 +6,7 @@ Summary:	eSpeak - speech synthesizer for English and other languages
 Summary(pl):	eSpeak - syntezator mowy dla jêzyka angielskiego i innych
 Name:		speak
 Version:	1.14
-Release:	1
+Release:	0.1
 License:	GPL v2
 Group:		Applications
 Source0:	http://dl.sourceforge.net/espeak/%{name}-%{version}-source.zip
