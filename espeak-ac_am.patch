@@ -1,0 +1,94 @@
+diff -Nur o.speak-1.14-source/Makefile.am n.speak-1.14-source/Makefile.am
+--- o.speak-1.14-source/Makefile.am	1970-01-01 01:00:00.000000000 +0100
++++ n.speak-1.14-source/Makefile.am	2006-09-23 20:28:28.000000000 +0200
+@@ -0,0 +1,5 @@
++SUBDIRS = src
++pkgdatadir = $(datadir)/espeak-data
++install-data-local:
++	install -d $(DESTDIR)$(pkgdatadir)
++	cp -Rf espeak-data/* $(DESTDIR)$(pkgdatadir)
+diff -Nur o.speak-1.14-source/configure.ac n.speak-1.14-source/configure.ac
+--- o.speak-1.14-source/configure.ac	1970-01-01 01:00:00.000000000 +0100
++++ n.speak-1.14-source/configure.ac	2006-09-23 20:45:27.000000000 +0200
+@@ -0,0 +1,43 @@
++#                                               -*- Autoconf -*-
++# Process this file with autoconf to produce a configure script.
++
++AC_PREREQ(2.59)
++AC_INIT(espeak, 1.16, )
++AM_INIT_AUTOMAKE
++AC_CONFIG_SRCDIR([src/speak.cpp])
++AC_CONFIG_HEADER([config.h])
++
++# Checks for programs.
++AC_PROG_CXX
++AC_PROG_CC
++AC_PROG_LIBTOOL
++
++# Checks for libraries.
++AC_CHECK_LIB([portaudio], [main])
++
++# Checks for header files.
++AC_HEADER_STDC
++AC_CHECK_HEADERS([locale.h stdlib.h string.h unistd.h wchar.h wctype.h portaudio.h])
++
++# Checks for typedefs, structures, and compiler characteristics.
++AC_C_CONST
++AC_C_RESTRICT
++AC_HEADER_STDBOOL
++
++# Checks for library functions.
++AC_FUNC_CLOSEDIR_VOID
++AC_FUNC_MALLOC
++AC_FUNC_MEMCMP
++AC_FUNC_REALLOC
++AC_TYPE_SIGNAL
++AC_FUNC_STAT
++AC_CHECK_FUNCS([memset pow setlocale sqrt strchr Pa_IsStreamActive])
++
++if test "$datadir" = "\${prefix}/share" ; then
++	datadirectory=$ac_default_prefix/share
++else
++	datadirectory="$datadir/espeak-data"
++fi
++AC_DEFINE_UNQUOTED(PATH_ESPEAK_DATA, "$datadirectory", [data directory])
++AC_CONFIG_FILES([Makefile src/Makefile])
++AC_OUTPUT
+diff -Nur o.speak-1.14-source/src/Makefile.am n.speak-1.14-source/src/Makefile.am
+--- o.speak-1.14-source/src/Makefile.am	1970-01-01 01:00:00.000000000 +0100
++++ n.speak-1.14-source/src/Makefile.am	2006-09-23 22:18:52.000000000 +0200
+@@ -0,0 +1,19 @@
++AM_CXXFLAGS = -Wall -pedantic -fno-exceptions
++
++bin_PROGRAMS = speak
++speak_SOURCES = speak.cpp
++speak_LDADD = libespeak.la
++
++lib_LTLIBRARIES = libespeak.la
++
++libespeak_la_SOURCES = speak_lib.cpp compiledict.cpp dictionary.cpp intonation.cpp \
++	readclause.cpp setlengths.cpp \
++	synthdata.cpp synthesize.cpp translate.cpp tr_english.cpp \
++	tr_languages.cpp voices.cpp wavegen.cpp
++
++libespeak_la_LDFLAGS = -version-info 2:16:1
++
++# -fvisibility=hidden requires modern GCC which is not present in current PLD Ac
++#libespeak_la_CXXFLAGS = $(AM_CXXFLAGS) -fvisibility=hidden
++
++include_HEADERS = speak_lib.h
+diff -Nur o.speak-1.14-source/src/speech.h n.speak-1.14-source/src/speech.h
+--- o.speak-1.14-source/src/speech.h	2006-09-21 20:00:41.000000000 +0200
++++ n.speak-1.14-source/src/speech.h	2006-09-23 19:54:14.000000000 +0200
+@@ -36,7 +36,10 @@
+ #endif
+ 
+ // will look for espeak_data directory here, and also in user's home directory
++#include "config.h"
++#ifndef PATH_ESPEAK_DATA
+ #define PATH_ESPEAK_DATA  "/usr/share/espeak-data"
++#endif
+ 
+ typedef unsigned short USHORT;
+ typedef unsigned char  UCHAR;
+
