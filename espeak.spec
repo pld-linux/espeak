@@ -4,15 +4,14 @@
 #
 Summary:	eSpeak - speech synthesizer for English and other languages
 Summary(pl):	eSpeak - syntezator mowy dla jêzyka angielskiego i innych
-Name:		speak
-Version:	1.14
+Name:		espeak
+Version:	1.16
 Release:	0.1
 License:	GPL v2
 Group:		Applications
 Source0:	http://dl.sourceforge.net/espeak/%{name}-%{version}-source.zip
-# Source0-md5:	9a52e2a00354474334adc36fe2fdd4c6
+# Source0-md5:	c376ea94cddda90b093f231926f7ba44
 Patch0:		%{name}-ac_am.patch
-Patch1:		%{name}-sys_includes.patch
 URL:		http://espeak.sourceforge.net/
 BuildRequires:	autoconf
 BuildRequires:	automake
@@ -21,6 +20,7 @@ BuildRequires:	libtool
 BuildRequires:	portaudio-devel >= 19
 BuildRequires:	unzip
 Requires:	%{name}-libs = %{version}-%{release}
+Obsoletes:	speak
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
@@ -86,6 +86,7 @@ bezpo¶rednio z przegl±darki Konqueror i edytora Kate.
 Summary: eSpeak shared libraries
 Summary(pl): eSpeak - biblioteki
 Group:	Libraries
+Obsoletes:	speak-libs
 
 %description libs
 eSpeak shared libraries.
@@ -120,7 +121,6 @@ eSpeak - biblioteki statyczne.
 %prep
 %setup -q -n %{name}-%{version}-source
 %patch0 -p1
-%patch1 -p1
 # remove pernicious headers to avoid using them during build instead of /usr/include/portaudio.h system header
 rm -f src/portaudio{18,19,}.h
 
@@ -150,50 +150,52 @@ rm -rf $RPM_BUILD_ROOT
 %defattr(644,root,root,755)
 %doc ChangeLog ReadMe docs
 %attr(755,root,root) %{_bindir}/*
-%dir %{_datadir}/e%{name}-data
-%dir %{_datadir}/e%{name}-data/voices
-%dir %{_datadir}/e%{name}-data/voices/en
-%{_datadir}/e%{name}-data/voices/af
-%{_datadir}/e%{name}-data/voices/cy
-%{_datadir}/e%{name}-data/voices/de
-%{_datadir}/e%{name}-data/voices/default
-%{_datadir}/e%{name}-data/voices/el
-%{_datadir}/e%{name}-data/voices/en/en-rp-f
-%{_datadir}/e%{name}-data/voices/en/en-wm-f
-%{_datadir}/e%{name}-data/voices/en/en-n
-%{_datadir}/e%{name}-data/voices/en/en
-%{_datadir}/e%{name}-data/voices/en/en1
-%{_datadir}/e%{name}-data/voices/en/en2
-%{_datadir}/e%{name}-data/voices/en/en3
-%{_datadir}/e%{name}-data/voices/en/en4
-%{_datadir}/e%{name}-data/voices/en/en6
-%{_datadir}/e%{name}-data/voices/en/en7
-%{_datadir}/e%{name}-data/voices/en/en8
-%{_datadir}/e%{name}-data/voices/en/en-croak
-%{_datadir}/e%{name}-data/voices/en/en-f
-%{_datadir}/e%{name}-data/voices/en/en-rp
-%{_datadir}/e%{name}-data/voices/en/en-n-f
-%{_datadir}/e%{name}-data/voices/en/en-wm
-%{_datadir}/e%{name}-data/voices/eo
-%{_datadir}/e%{name}-data/voices/es
-%{_datadir}/e%{name}-data/voices/it
-%{_datadir}/e%{name}-data/voices/pl
-%{_datadir}/e%{name}-data/voices/ru
-%dir %{_datadir}/e%{name}-data/soundicons
-%{_datadir}/e%{name}-data/af_dict
-%{_datadir}/e%{name}-data/config
-%{_datadir}/e%{name}-data/cy_dict
-%{_datadir}/e%{name}-data/de_dict
-%{_datadir}/e%{name}-data/en_dict
-%{_datadir}/e%{name}-data/eo_dict
-%{_datadir}/e%{name}-data/el_dict
-%{_datadir}/e%{name}-data/es_dict
-%{_datadir}/e%{name}-data/it_dict
-%{_datadir}/e%{name}-data/phondata
-%{_datadir}/e%{name}-data/phonindex
-%{_datadir}/e%{name}-data/phontab
-%{_datadir}/e%{name}-data/pl_dict
-%{_datadir}/e%{name}-data/ru_dict
+%dir %{_datadir}/%{name}-data
+%dir %{_datadir}/%{name}-data/voices
+%dir %{_datadir}/%{name}-data/voices/en
+%{_datadir}/%{name}-data/voices/af
+%{_datadir}/%{name}-data/voices/cy
+%{_datadir}/%{name}-data/voices/de
+%{_datadir}/%{name}-data/voices/default
+%{_datadir}/%{name}-data/voices/el
+%{_datadir}/%{name}-data/voices/en/en-rp-f
+%{_datadir}/%{name}-data/voices/en/en-wm-f
+%{_datadir}/%{name}-data/voices/en/en-n
+%{_datadir}/%{name}-data/voices/en/en
+%{_datadir}/%{name}-data/voices/en/en1
+%{_datadir}/%{name}-data/voices/en/en2
+%{_datadir}/%{name}-data/voices/en/en3
+%{_datadir}/%{name}-data/voices/en/en4
+%{_datadir}/%{name}-data/voices/en/en6
+%{_datadir}/%{name}-data/voices/en/en7
+%{_datadir}/%{name}-data/voices/en/en8
+%{_datadir}/%{name}-data/voices/en/en-croak
+%{_datadir}/%{name}-data/voices/en/en-f
+%{_datadir}/%{name}-data/voices/en/en-rp
+%{_datadir}/%{name}-data/voices/en/en-n-f
+%{_datadir}/%{name}-data/voices/en/en-wm
+%{_datadir}/%{name}-data/voices/eo
+%{_datadir}/%{name}-data/voices/es
+%{_datadir}/%{name}-data/voices/fi
+%{_datadir}/%{name}-data/voices/it
+%{_datadir}/%{name}-data/voices/pl
+%{_datadir}/%{name}-data/voices/ru
+%dir %{_datadir}/%{name}-data/soundicons
+%{_datadir}/%{name}-data/af_dict
+%{_datadir}/%{name}-data/config
+%{_datadir}/%{name}-data/cy_dict
+%{_datadir}/%{name}-data/de_dict
+%{_datadir}/%{name}-data/en_dict
+%{_datadir}/%{name}-data/eo_dict
+%{_datadir}/%{name}-data/el_dict
+%{_datadir}/%{name}-data/es_dict
+%{_datadir}/%{name}-data/fi_dict
+%{_datadir}/%{name}-data/it_dict
+%{_datadir}/%{name}-data/phondata
+%{_datadir}/%{name}-data/phonindex
+%{_datadir}/%{name}-data/phontab
+%{_datadir}/%{name}-data/pl_dict
+%{_datadir}/%{name}-data/ru_dict
 
 %files libs
 %defattr(644,root,root,755)
