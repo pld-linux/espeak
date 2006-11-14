@@ -83,9 +83,9 @@ mo¿e czytaæ na g³os tekst zaznaczony uprzednio do schowka lub
 bezpo¶rednio z przegl±darki Konqueror i edytora Kate.
 
 %package libs
-Summary: eSpeak shared libraries
-Summary(pl): eSpeak - biblioteki
-Group:	Libraries
+Summary:	eSpeak shared libraries
+Summary(pl):	eSpeak - biblioteki
+Group:		Libraries
 Obsoletes:	speak-libs
 
 %description libs
@@ -97,7 +97,7 @@ eSpeak - biblioteki dzielone.
 %package devel
 Summary:	eSpeak - development files
 Summary(pl):	eSpeak - pliki dla programistów
-Group:	Development/Libraries
+Group:		Development/Libraries
 Requires:	%{name}-libs = %{version}-%{release}
 
 %description devel
@@ -109,7 +109,7 @@ eSpeak - pliki dla programistów.
 %package static
 Summary:	eSpeak - static libraries
 Summary(pl):	eSpeak - biblioteki statyczne
-Group:	Development/Libraries
+Group:		Development/Libraries
 Requires:	%{name}-devel = %{version}-%{release}
 
 %description static
