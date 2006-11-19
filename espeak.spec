@@ -5,12 +5,12 @@
 Summary:	eSpeak - speech synthesizer for English and other languages
 Summary(pl):	eSpeak - syntezator mowy dla jêzyka angielskiego i innych
 Name:		espeak
-Version:	1.16
-Release:	0.1
+Version:	1.17
+Release:	1
 License:	GPL v2
 Group:		Applications
 Source0:	http://dl.sourceforge.net/espeak/%{name}-%{version}-source.zip
-# Source0-md5:	c376ea94cddda90b093f231926f7ba44
+# Source0-md5:	b55432e1f0b7cea1276f25281714c771
 Patch0:		%{name}-ac_am.patch
 URL:		http://espeak.sourceforge.net/
 BuildRequires:	autoconf
@@ -178,7 +178,9 @@ rm -rf $RPM_BUILD_ROOT
 %{_datadir}/%{name}-data/voices/es
 %{_datadir}/%{name}-data/voices/fi
 %{_datadir}/%{name}-data/voices/it
+%{_datadir}/%{name}-data/voices/nl
 %{_datadir}/%{name}-data/voices/pl
+%{_datadir}/%{name}-data/voices/pt
 %{_datadir}/%{name}-data/voices/ru
 %dir %{_datadir}/%{name}-data/soundicons
 %{_datadir}/%{name}-data/af_dict
@@ -191,10 +193,12 @@ rm -rf $RPM_BUILD_ROOT
 %{_datadir}/%{name}-data/es_dict
 %{_datadir}/%{name}-data/fi_dict
 %{_datadir}/%{name}-data/it_dict
+%{_datadir}/%{name}-data/nl_dict
 %{_datadir}/%{name}-data/phondata
 %{_datadir}/%{name}-data/phonindex
 %{_datadir}/%{name}-data/phontab
 %{_datadir}/%{name}-data/pl_dict
+%{_datadir}/%{name}-data/pt_dict
 %{_datadir}/%{name}-data/ru_dict
 
 %files libs
