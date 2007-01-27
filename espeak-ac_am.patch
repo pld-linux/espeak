@@ -10,7 +10,7 @@ diff -Nur o.speak-1.14-source/Makefile.am n.speak-1.14-source/Makefile.am
 diff -Nur o.speak-1.14-source/configure.ac n.speak-1.14-source/configure.ac
 --- o.speak-1.14-source/configure.ac	1970-01-01 01:00:00.000000000 +0100
 +++ n.speak-1.14-source/configure.ac	2006-09-23 20:45:27.000000000 +0200
-@@ -0,0 +1,43 @@
+@@ -0,0 +1,45 @@
 +#                                               -*- Autoconf -*-
 +# Process this file with autoconf to produce a configure script.
 +
@@ -46,6 +46,8 @@ diff -Nur o.speak-1.14-source/configure.ac n.speak-1.14-source/configure.ac
 +AC_FUNC_STAT
 +AC_CHECK_FUNCS([memset pow setlocale sqrt strchr Pa_IsStreamActive])
 +
++AC_C_BIGENDIAN(AC_SUBST(ARCH_BIG,[-DARCH_BIG]),AC_SUBST(ARCH_BIG,[]),)
++
 +if test "$datadir" = "\${prefix}/share" ; then
 +	datadirectory=$ac_default_prefix/share
 +else
@@ -58,7 +60,7 @@ diff -Nur o.speak-1.14-source/src/Makefile.am n.speak-1.14-source/src/Makefile.a
 --- o.speak-1.14-source/src/Makefile.am	1970-01-01 01:00:00.000000000 +0100
 +++ n.speak-1.14-source/src/Makefile.am	2006-09-23 22:18:52.000000000 +0200
 @@ -0,0 +1,16 @@
-+AM_CXXFLAGS = -Wall -pedantic -fno-exceptions
++AM_CXXFLAGS = -Wall -pedantic -fno-exceptions @ARCH_BIG@
 +
 +bin_PROGRAMS = speak
 +speak_SOURCES = speak.cpp
