@@ -203,6 +203,7 @@ rm -rf $RPM_BUILD_ROOT
 %{_datadir}/%{name}-data/ru_dict
 %{_datadir}/%{name}-data/sv_dict
 %{_datadir}/%{name}-data/vi_dict
+%dir %{_datadir}/%{name}-data/voices/!v
 %{_datadir}/%{name}-data/voices/!v/!variant1
 %{_datadir}/%{name}-data/voices/!v/!variant11
 %{_datadir}/%{name}-data/voices/!v/!variant12
