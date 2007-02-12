@@ -3,7 +3,7 @@
 %bcond_without	static_libs # don't build static libraries
 #
 Summary:	eSpeak - speech synthesizer for English and other languages
-Summary(pl.UTF-8):   eSpeak - syntezator mowy dla języka angielskiego i innych
+Summary(pl.UTF-8):	eSpeak - syntezator mowy dla języka angielskiego i innych
 Name:		espeak
 Version:	1.19
 Release:	1
@@ -84,7 +84,7 @@ bezpośrednio z przeglądarki Konqueror i edytora Kate.
 
 %package libs
 Summary:	eSpeak shared libraries
-Summary(pl.UTF-8):   eSpeak - biblioteki
+Summary(pl.UTF-8):	eSpeak - biblioteki
 Group:		Libraries
 Obsoletes:	speak-libs
 
@@ -96,7 +96,7 @@ eSpeak - biblioteki dzielone.
 
 %package devel
 Summary:	eSpeak - development files
-Summary(pl.UTF-8):   eSpeak - pliki dla programistów
+Summary(pl.UTF-8):	eSpeak - pliki dla programistów
 Group:		Development/Libraries
 Requires:	%{name}-libs = %{version}-%{release}
 
@@ -108,7 +108,7 @@ eSpeak - pliki dla programistów.
 
 %package static
 Summary:	eSpeak - static libraries
-Summary(pl.UTF-8):   eSpeak - biblioteki statyczne
+Summary(pl.UTF-8):	eSpeak - biblioteki statyczne
 Group:		Development/Libraries
 Requires:	%{name}-devel = %{version}-%{release}
 
