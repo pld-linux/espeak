@@ -3,7 +3,7 @@
 %bcond_without	static_libs # don't build static libraries
 #
 Summary:	eSpeak - speech synthesizer for English and other languages
-Summary(pl):	eSpeak - syntezator mowy dla jêzyka angielskiego i innych
+Summary(pl.UTF-8):   eSpeak - syntezator mowy dla jÄ™zyka angielskiego i innych
 Name:		espeak
 Version:	1.19
 Release:	1
@@ -52,70 +52,70 @@ as an alternative to Festival for example. As such, it can speak text
 which has been selected into the clipboard, or directly from the
 Konquerer browser or the Kate editor.
 
-%description -l pl
+%description -l pl.UTF-8
 eSpeak to programowy syntezator mowy dla angielskiego i innych
-jêzyków. Odtwarza angielsk± mowê dobrej jako¶ci. U¿ywa innej metody
-syntezy ni¿ inne silniki TTS o otwartych ¼ród³ach i brzmi trochê
-inaczej. Nie jest mo¿e tak naturalny czy "g³adki", ale autor uwa¿a tê
-wymowê za czystsz± i ³atwiejsz± w s³uchaniu na d³u¿sz± metê.
+jÄ™zykÃ³w. Odtwarza angielskÄ… mowÄ™ dobrej jakoÅ›ci. UÅ¼ywa innej metody
+syntezy niÅ¼ inne silniki TTS o otwartych ÅºrÃ³dÅ‚ach i brzmi trochÄ™
+inaczej. Nie jest moÅ¼e tak naturalny czy "gÅ‚adki", ale autor uwaÅ¼a tÄ™
+wymowÄ™ za czystszÄ… i Å‚atwiejszÄ… w sÅ‚uchaniu na dÅ‚uÅ¼szÄ… metÄ™.
 
-- Mo¿e dzia³aæ jako program z linii poleceñ do wymawiania tekstu z
-  pliku lub standardowego wej¶cia; dostêpna jest tak¿e wersja w
+- MoÅ¼e dziaÅ‚aÄ‡ jako program z linii poleceÅ„ do wymawiania tekstu z
+  pliku lub standardowego wejÅ›cia; dostÄ™pna jest takÅ¼e wersja w
   postaci biblioteki (nie w tym pakiecie).
-- Zawiera ró¿ne g³osy, a ich charakterystykê mo¿na zmieniaæ.
-- Potrafi tworzyæ pliki WAV z mow±.
-- Obs³ugiwany (ale nie w pe³ni) jest SSML (Speech Synthesis Markup
+- Zawiera rÃ³Å¼ne gÅ‚osy, a ich charakterystykÄ™ moÅ¼na zmieniaÄ‡.
+- Potrafi tworzyÄ‡ pliki WAV z mowÄ….
+- ObsÅ‚ugiwany (ale nie w peÅ‚ni) jest SSML (Speech Synthesis Markup
   Language)  oraz HTML.
-- Ma³y rozmiar - program i jego dane, wraz z kilkoma jêzykami,
-  mieszcz± siê w oko³o 420kB.
-- Potrafi t³umaczyæ tekst na kody fonemów, wiêc mo¿e byæ zaadaptowany
-  jako frontend dla innych silników syntezy mowy.
-- Potencjalnie mo¿e nadawaæ siê dla innych jêzyków; kilka jest
-  do³±czonych (na przyk³ad j.polski) w ró¿nym stadium zaawansowania.
-  Mile widziana jest pomoc od osób, dla których s± to jêzyki ojczyste.
-- Dostêpne s± narzêdzia programistyczne do tworzenia i dostrajania
-  danych dla fonemów.
+- MaÅ‚y rozmiar - program i jego dane, wraz z kilkoma jÄ™zykami,
+  mieszczÄ… siÄ™ w okoÅ‚o 420kB.
+- Potrafi tÅ‚umaczyÄ‡ tekst na kody fonemÃ³w, wiÄ™c moÅ¼e byÄ‡ zaadaptowany
+  jako frontend dla innych silnikÃ³w syntezy mowy.
+- Potencjalnie moÅ¼e nadawaÄ‡ siÄ™ dla innych jÄ™zykÃ³w; kilka jest
+  doÅ‚Ä…czonych (na przykÅ‚ad j.polski) w rÃ³Å¼nym stadium zaawansowania.
+  Mile widziana jest pomoc od osÃ³b, dla ktÃ³rych sÄ… to jÄ™zyki ojczyste.
+- DostÄ™pne sÄ… narzÄ™dzia programistyczne do tworzenia i dostrajania
+  danych dla fonemÃ³w.
 - Napisany w C++.
 
-Dobrze pracuje jako "mówca" z systemem przetwarzania tekstu na mowê
-KDE (KTTS), na przyk³ad, jako alternatywa dla Festivala. Jako taki,
-mo¿e czytaæ na g³os tekst zaznaczony uprzednio do schowka lub
-bezpo¶rednio z przegl±darki Konqueror i edytora Kate.
+Dobrze pracuje jako "mÃ³wca" z systemem przetwarzania tekstu na mowÄ™
+KDE (KTTS), na przykÅ‚ad, jako alternatywa dla Festivala. Jako taki,
+moÅ¼e czytaÄ‡ na gÅ‚os tekst zaznaczony uprzednio do schowka lub
+bezpoÅ›rednio z przeglÄ…darki Konqueror i edytora Kate.
 
 %package libs
 Summary:	eSpeak shared libraries
-Summary(pl):	eSpeak - biblioteki
+Summary(pl.UTF-8):   eSpeak - biblioteki
 Group:		Libraries
 Obsoletes:	speak-libs
 
 %description libs
 eSpeak shared libraries.
 
-%description libs -l pl
+%description libs -l pl.UTF-8
 eSpeak - biblioteki dzielone.
 
 %package devel
 Summary:	eSpeak - development files
-Summary(pl):	eSpeak - pliki dla programistów
+Summary(pl.UTF-8):   eSpeak - pliki dla programistÃ³w
 Group:		Development/Libraries
 Requires:	%{name}-libs = %{version}-%{release}
 
 %description devel
 eSpeak - development files.
 
-%description devel -l pl
-eSpeak - pliki dla programistów.
+%description devel -l pl.UTF-8
+eSpeak - pliki dla programistÃ³w.
 
 %package static
 Summary:	eSpeak - static libraries
-Summary(pl):	eSpeak - biblioteki statyczne
+Summary(pl.UTF-8):   eSpeak - biblioteki statyczne
 Group:		Development/Libraries
 Requires:	%{name}-devel = %{version}-%{release}
 
 %description static
 eSpeak - static libraries.
 
-%description static -l pl
+%description static -l pl.UTF-8
 eSpeak - biblioteki statyczne.
 
 %prep
