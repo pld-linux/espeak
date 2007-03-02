@@ -5,12 +5,12 @@
 Summary:	eSpeak - speech synthesizer for English and other languages
 Summary(pl.UTF-8):	eSpeak - syntezator mowy dla języka angielskiego i innych
 Name:		espeak
-Version:	1.19
+Version:	1.21
 Release:	1
 License:	GPL v2
 Group:		Applications
 Source0:	http://dl.sourceforge.net/espeak/%{name}-%{version}-source.zip
-# Source0-md5:	49d70bd49f7cc7c1151f5973ee26c152
+# Source0-md5:	554bce374c5e86d2d886d030a5bcf16e
 Patch0:		%{name}-ac_am.patch
 URL:		http://espeak.sourceforge.net/
 BuildRequires:	autoconf
@@ -153,6 +153,9 @@ rm -rf $RPM_BUILD_ROOT
 %dir %{_datadir}/%{name}-data
 %dir %{_datadir}/%{name}-data/voices
 %dir %{_datadir}/%{name}-data/voices/en
+
+
+
 %{_datadir}/%{name}-data/voices/af
 %{_datadir}/%{name}-data/voices/cy
 %{_datadir}/%{name}-data/voices/de
@@ -168,9 +171,7 @@ rm -rf $RPM_BUILD_ROOT
 %{_datadir}/%{name}-data/voices/es
 %{_datadir}/%{name}-data/voices/fi
 %{_datadir}/%{name}-data/voices/fr
-%{_datadir}/%{name}-data/voices/fr-ca
-%{_datadir}/%{name}-data/fr_dict
-%{_datadir}/%{name}-data/hi_dict
+%{_datadir}/%{name}-data/voices/hu
 %{_datadir}/%{name}-data/voices/hi
 %{_datadir}/%{name}-data/voices/it
 %{_datadir}/%{name}-data/voices/nl
@@ -180,6 +181,7 @@ rm -rf $RPM_BUILD_ROOT
 %{_datadir}/%{name}-data/voices/ro
 %{_datadir}/%{name}-data/voices/ru
 %{_datadir}/%{name}-data/voices/sv
+%{_datadir}/%{name}-data/voices/sw
 %{_datadir}/%{name}-data/voices/vi
 %dir %{_datadir}/%{name}-data/soundicons
 %{_datadir}/%{name}-data/af_dict
@@ -191,6 +193,9 @@ rm -rf $RPM_BUILD_ROOT
 %{_datadir}/%{name}-data/el_dict
 %{_datadir}/%{name}-data/es_dict
 %{_datadir}/%{name}-data/fi_dict
+%{_datadir}/%{name}-data/fr_dict
+%{_datadir}/%{name}-data/hi_dict
+%{_datadir}/%{name}-data/hu_dict
 %{_datadir}/%{name}-data/it_dict
 %{_datadir}/%{name}-data/nl_dict
 %{_datadir}/%{name}-data/no_dict
@@ -202,6 +207,7 @@ rm -rf $RPM_BUILD_ROOT
 %{_datadir}/%{name}-data/ro_dict
 %{_datadir}/%{name}-data/ru_dict
 %{_datadir}/%{name}-data/sv_dict
+%{_datadir}/%{name}-data/sw_dict
 %{_datadir}/%{name}-data/vi_dict
 %dir %{_datadir}/%{name}-data/voices/!v
 %{_datadir}/%{name}-data/voices/!v/!variant1
