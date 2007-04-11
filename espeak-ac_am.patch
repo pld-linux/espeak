@@ -15,7 +15,7 @@ diff -Nur o.speak-1.14-source/configure.ac n.speak-1.14-source/configure.ac
 +# Process this file with autoconf to produce a configure script.
 +
 +AC_PREREQ(2.59)
-+AC_INIT(espeak, 1.21, )
++AC_INIT(espeak, 1.22, )
 +AM_INIT_AUTOMAKE
 +AC_CONFIG_SRCDIR([src/speak.cpp])
 +AC_CONFIG_HEADER([config.h])
@@ -69,11 +69,11 @@ diff -Nur o.speak-1.14-source/src/Makefile.am n.speak-1.14-source/src/Makefile.a
 +lib_LTLIBRARIES = libespeak.la
 +
 +libespeak_la_SOURCES = speak_lib.cpp compiledict.cpp dictionary.cpp intonation.cpp \
-+	numbers.cpp readclause.cpp setlengths.cpp \
++	numbers.cpp readclause.cpp setlengths.cpp synth_mbrola.cpp \
 +	synthdata.cpp synthesize.cpp translate.cpp tr_english.cpp \
 +	tr_languages.cpp voices.cpp wavegen.cpp
 +
-+libespeak_la_LDFLAGS = -version-info 2:21:1
++libespeak_la_LDFLAGS = -version-info 2:22:1
 +
 +include_HEADERS = speak_lib.h
 --- espeak-1.17-source/src/speech.h~	2006-11-19 14:47:14.000000000 +0100

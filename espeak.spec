@@ -5,12 +5,12 @@
 Summary:	eSpeak - speech synthesizer for English and other languages
 Summary(pl.UTF-8):	eSpeak - syntezator mowy dla języka angielskiego i innych
 Name:		espeak
-Version:	1.21
-Release:	1
+Version:	1.22
+Release:	0.1
 License:	GPL v2
 Group:		Applications
 Source0:	http://dl.sourceforge.net/espeak/%{name}-%{version}-source.zip
-# Source0-md5:	554bce374c5e86d2d886d030a5bcf16e
+# Source0-md5:	57e84d1afc0992f65c568dcddea73fee
 Patch0:		%{name}-ac_am.patch
 URL:		http://espeak.sourceforge.net/
 BuildRequires:	autoconf
@@ -152,18 +152,17 @@ rm -rf $RPM_BUILD_ROOT
 %attr(755,root,root) %{_bindir}/*
 %dir %{_datadir}/%{name}-data
 %dir %{_datadir}/%{name}-data/voices
-%dir %{_datadir}/%{name}-data/voices/en
-
-
-
 %{_datadir}/%{name}-data/voices/af
+%{_datadir}/%{name}-data/voices/cs
 %{_datadir}/%{name}-data/voices/cy
 %{_datadir}/%{name}-data/voices/de
 %{_datadir}/%{name}-data/voices/default
 %{_datadir}/%{name}-data/voices/el
+%dir %{_datadir}/%{name}-data/voices/en
 %{_datadir}/%{name}-data/voices/en/en
 %{_datadir}/%{name}-data/voices/en/en-n
 %{_datadir}/%{name}-data/voices/en/en-r
+%{_datadir}/%{name}-data/voices/en/en-sc
 %{_datadir}/%{name}-data/voices/en/en-wm
 %{_datadir}/%{name}-data/voices/en/en-croak
 %{_datadir}/%{name}-data/voices/en/en-rp
@@ -171,6 +170,7 @@ rm -rf $RPM_BUILD_ROOT
 %{_datadir}/%{name}-data/voices/es
 %{_datadir}/%{name}-data/voices/fi
 %{_datadir}/%{name}-data/voices/fr
+%{_datadir}/%{name}-data/voices/fr-ca
 %{_datadir}/%{name}-data/voices/hu
 %{_datadir}/%{name}-data/voices/hi
 %{_datadir}/%{name}-data/voices/it
@@ -178,14 +178,42 @@ rm -rf $RPM_BUILD_ROOT
 %{_datadir}/%{name}-data/voices/no
 %{_datadir}/%{name}-data/voices/pl
 %{_datadir}/%{name}-data/voices/pt
+%{_datadir}/%{name}-data/voices/pt-pt
 %{_datadir}/%{name}-data/voices/ro
 %{_datadir}/%{name}-data/voices/ru
+%{_datadir}/%{name}-data/voices/sk
 %{_datadir}/%{name}-data/voices/sv
 %{_datadir}/%{name}-data/voices/sw
 %{_datadir}/%{name}-data/voices/vi
+%{_datadir}/%{name}-data/voices/zhy
+%dir %{_datadir}/%{name}-data/voices/mb
+%{_datadir}/%{name}-data/voices/mb/mb-af1
+%{_datadir}/%{name}-data/voices/mb/mb-af1-en
+%{_datadir}/%{name}-data/voices/mb/mb-cz2
+%{_datadir}/%{name}-data/voices/mb/mb-de4
+%{_datadir}/%{name}-data/voices/mb/mb-de4-en
+%{_datadir}/%{name}-data/voices/mb/mb-en1
+%{_datadir}/%{name}-data/voices/mb/mb-fr1
+%{_datadir}/%{name}-data/voices/mb/mb-fr1-en
+%{_datadir}/%{name}-data/voices/mb/mb-fr4
+%{_datadir}/%{name}-data/voices/mb/mb-fr4-en
+%{_datadir}/%{name}-data/voices/mb/mb-nl2
+%{_datadir}/%{name}-data/voices/mb/mb-nl2-en
+%{_datadir}/%{name}-data/voices/mb/mb-pl1
+%{_datadir}/%{name}-data/voices/mb/mb-pl1-en
+%{_datadir}/%{name}-data/voices/mb/mb-ro1
+%{_datadir}/%{name}-data/voices/mb/mb-ro1-en
+%{_datadir}/%{name}-data/voices/mb/mb-sw1
+%{_datadir}/%{name}-data/voices/mb/mb-sw1-en
+%{_datadir}/%{name}-data/voices/mb/mb-sw2
+%{_datadir}/%{name}-data/voices/mb/mb-sw2-en
+%{_datadir}/%{name}-data/voices/mb/mb-us1
+%{_datadir}/%{name}-data/voices/mb/mb-us2
+%{_datadir}/%{name}-data/voices/mb/mb-us3
 %dir %{_datadir}/%{name}-data/soundicons
 %{_datadir}/%{name}-data/af_dict
 %{_datadir}/%{name}-data/config
+%{_datadir}/%{name}-data/cs_dict
 %{_datadir}/%{name}-data/cy_dict
 %{_datadir}/%{name}-data/de_dict
 %{_datadir}/%{name}-data/en_dict
@@ -206,9 +234,24 @@ rm -rf $RPM_BUILD_ROOT
 %{_datadir}/%{name}-data/pt_dict
 %{_datadir}/%{name}-data/ro_dict
 %{_datadir}/%{name}-data/ru_dict
+%{_datadir}/%{name}-data/sk_dict
 %{_datadir}/%{name}-data/sv_dict
 %{_datadir}/%{name}-data/sw_dict
 %{_datadir}/%{name}-data/vi_dict
+%{_datadir}/%{name}-data/zhy_dict
+%dir %{_datadir}/%{name}-data/mbrola_ph
+%{_datadir}/%{name}-data/mbrola_ph/af1_phtrans
+%{_datadir}/%{name}-data/mbrola_ph/ca1_phtrans
+%{_datadir}/%{name}-data/mbrola_ph/cs_phtrans
+%{_datadir}/%{name}-data/mbrola_ph/de4_phtrans
+%{_datadir}/%{name}-data/mbrola_ph/en1_phtrans
+%{_datadir}/%{name}-data/mbrola_ph/fr1_phtrans
+%{_datadir}/%{name}-data/mbrola_ph/nl_phtrans
+%{_datadir}/%{name}-data/mbrola_ph/pl1_phtrans
+%{_datadir}/%{name}-data/mbrola_ph/ro1_phtrans
+%{_datadir}/%{name}-data/mbrola_ph/sv_phtrans
+%{_datadir}/%{name}-data/mbrola_ph/us3_phtrans
+%{_datadir}/%{name}-data/mbrola_ph/us_phtrans
 %dir %{_datadir}/%{name}-data/voices/!v
 %{_datadir}/%{name}-data/voices/!v/!variant1
 %{_datadir}/%{name}-data/voices/!v/!variant11
@@ -219,6 +262,7 @@ rm -rf $RPM_BUILD_ROOT
 %{_datadir}/%{name}-data/voices/!v/!variant3
 %{_datadir}/%{name}-data/voices/!v/!variant4
 %{_datadir}/%{name}-data/voices/!v/!variant5
+%{_datadir}/%{name}-data/voices/!v/!variant6
 
 %files libs
 %defattr(644,root,root,755)
