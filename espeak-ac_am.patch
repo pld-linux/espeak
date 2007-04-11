@@ -69,7 +69,7 @@ diff -Nur o.speak-1.14-source/src/Makefile.am n.speak-1.14-source/src/Makefile.a
 +lib_LTLIBRARIES = libespeak.la
 +
 +libespeak_la_SOURCES = speak_lib.cpp compiledict.cpp dictionary.cpp intonation.cpp \
-+	numbers.c readclause.cpp setlengths.cpp \
++	numbers.cpp readclause.cpp setlengths.cpp \
 +	synthdata.cpp synthesize.cpp translate.cpp tr_english.cpp \
 +	tr_languages.cpp voices.cpp wavegen.cpp
 +
