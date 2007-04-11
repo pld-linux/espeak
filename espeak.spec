@@ -5,12 +5,12 @@
 Summary:	eSpeak - speech synthesizer for English and other languages
 Summary(pl):	eSpeak - syntezator mowy dla jêzyka angielskiego i innych
 Name:		espeak
-Version:	1.19
-Release:	0.3
+Version:	1.21
+Release:	1
 License:	GPL v2
 Group:		Applications
 Source0:	http://dl.sourceforge.net/espeak/%{name}-%{version}-source.zip
-# Source0-md5:	49d70bd49f7cc7c1151f5973ee26c152
+# Source0-md5:	554bce374c5e86d2d886d030a5bcf16e
 Patch0:		%{name}-ac_am.patch
 URL:		http://espeak.sourceforge.net/
 BuildRequires:	autoconf
