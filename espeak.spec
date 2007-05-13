@@ -1,12 +1,8 @@
-#
-# Conditional build:
-%bcond_without	static_libs # don't build static libraries
-#
 Summary:	eSpeak - speech synthesizer for English and other languages
 Summary(pl.UTF-8):	eSpeak - syntezator mowy dla języka angielskiego i innych
 Name:		espeak
 Version:	1.24
-Release:	1	
+Release:	1
 License:	GPL v2
 Group:		Applications
 Source0:	http://dl.sourceforge.net/espeak/%{name}-%{version}-source.zip
