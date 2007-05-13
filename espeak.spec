@@ -5,18 +5,14 @@
 Summary:	eSpeak - speech synthesizer for English and other languages
 Summary(pl.UTF-8):	eSpeak - syntezator mowy dla języka angielskiego i innych
 Name:		espeak
-Version:	1.22
-Release:	1
+Version:	1.24
+Release:	1	
 License:	GPL v2
 Group:		Applications
 Source0:	http://dl.sourceforge.net/espeak/%{name}-%{version}-source.zip
-# Source0-md5:	57e84d1afc0992f65c568dcddea73fee
-Patch0:		%{name}-ac_am.patch
+# Source0-md5:	6b00c634a18caca91e8c94ca36675304
 URL:		http://espeak.sourceforge.net/
-BuildRequires:	autoconf
-BuildRequires:	automake
 BuildRequires:	libstdc++-devel
-BuildRequires:	libtool
 BuildRequires:	portaudio-devel >= 19
 BuildRequires:	unzip
 Requires:	%{name}-libs = %{version}-%{release}
@@ -120,25 +116,22 @@ eSpeak - biblioteki statyczne.
 
 %prep
 %setup -q -n %{name}-%{version}-source
-%patch0 -p1
 # remove pernicious headers to avoid using them during build instead of /usr/include/portaudio.h system header
 rm -f src/portaudio{18,19,}.h
 
 %build
-%{__libtoolize}
-%{__aclocal}
-%{__autoconf}
-%{__autoheader}
-%{__automake}
-%configure \
-	--enable-static=%{?with_static_libs:yes}%{!?with_static_libs:no}
-%{__make}
+cd src
+%{__make} \
+	CXX="%{__cxx}" \
+	CXXFLAGS="%{rpmcxxflags}" \
 
 %install
 rm -rf $RPM_BUILD_ROOT
 
+cd src
 %{__make} install \
-	DESTDIR=$RPM_BUILD_ROOT
+	DESTDIR=$RPM_BUILD_ROOT \
+	LIBDIR="%{_libdir}"
 
 %clean
 rm -rf $RPM_BUILD_ROOT
@@ -170,9 +163,10 @@ rm -rf $RPM_BUILD_ROOT
 %{_datadir}/%{name}-data/voices/es
 %{_datadir}/%{name}-data/voices/fi
 %{_datadir}/%{name}-data/voices/fr
-%{_datadir}/%{name}-data/voices/fr-ca
-%{_datadir}/%{name}-data/voices/hu
+#%%{_datadir}/%{name}-data/voices/fr-ca
 %{_datadir}/%{name}-data/voices/hi
+%{_datadir}/%{name}-data/voices/hr
+%{_datadir}/%{name}-data/voices/hu
 %{_datadir}/%{name}-data/voices/it
 %{_datadir}/%{name}-data/voices/nl
 %{_datadir}/%{name}-data/voices/no
@@ -189,14 +183,19 @@ rm -rf $RPM_BUILD_ROOT
 %dir %{_datadir}/%{name}-data/voices/mb
 %{_datadir}/%{name}-data/voices/mb/mb-af1
 %{_datadir}/%{name}-data/voices/mb/mb-af1-en
+%{_datadir}/%{name}-data/voices/mb/mb-cr1
 %{_datadir}/%{name}-data/voices/mb/mb-cz2
 %{_datadir}/%{name}-data/voices/mb/mb-de4
+%{_datadir}/%{name}-data/voices/mb/mb-de5
 %{_datadir}/%{name}-data/voices/mb/mb-de4-en
+%{_datadir}/%{name}-data/voices/mb/mb-de5-en
 %{_datadir}/%{name}-data/voices/mb/mb-en1
 %{_datadir}/%{name}-data/voices/mb/mb-fr1
 %{_datadir}/%{name}-data/voices/mb/mb-fr1-en
 %{_datadir}/%{name}-data/voices/mb/mb-fr4
 %{_datadir}/%{name}-data/voices/mb/mb-fr4-en
+%{_datadir}/%{name}-data/voices/mb/mb-hu1
+%{_datadir}/%{name}-data/voices/mb/mb-hu1-en
 %{_datadir}/%{name}-data/voices/mb/mb-nl2
 %{_datadir}/%{name}-data/voices/mb/mb-nl2-en
 %{_datadir}/%{name}-data/voices/mb/mb-pl1
@@ -223,6 +222,7 @@ rm -rf $RPM_BUILD_ROOT
 %{_datadir}/%{name}-data/fi_dict
 %{_datadir}/%{name}-data/fr_dict
 %{_datadir}/%{name}-data/hi_dict
+%{_datadir}/%{name}-data/hr_dict
 %{_datadir}/%{name}-data/hu_dict
 %{_datadir}/%{name}-data/it_dict
 %{_datadir}/%{name}-data/nl_dict
@@ -242,10 +242,13 @@ rm -rf $RPM_BUILD_ROOT
 %dir %{_datadir}/%{name}-data/mbrola_ph
 %{_datadir}/%{name}-data/mbrola_ph/af1_phtrans
 %{_datadir}/%{name}-data/mbrola_ph/ca1_phtrans
+%{_datadir}/%{name}-data/mbrola_ph/cr1_phtrans
 %{_datadir}/%{name}-data/mbrola_ph/cs_phtrans
 %{_datadir}/%{name}-data/mbrola_ph/de4_phtrans
+%{_datadir}/%{name}-data/mbrola_ph/de5_phtrans
 %{_datadir}/%{name}-data/mbrola_ph/en1_phtrans
 %{_datadir}/%{name}-data/mbrola_ph/fr1_phtrans
+%{_datadir}/%{name}-data/mbrola_ph/hu1_phtrans
 %{_datadir}/%{name}-data/mbrola_ph/nl_phtrans
 %{_datadir}/%{name}-data/mbrola_ph/pl1_phtrans
 %{_datadir}/%{name}-data/mbrola_ph/ro1_phtrans
@@ -272,10 +275,7 @@ rm -rf $RPM_BUILD_ROOT
 %defattr(644,root,root,755)
 %{_includedir}/*
 %attr(755,root,root) %{_libdir}/lib*.so
-%{_libdir}/lib*.la
 
-%if %{with static_libs}
 %files static
 %defattr(644,root,root,755)
 %{_libdir}/lib*.a
-%endif
