@@ -118,24 +118,22 @@ eSpeak - biblioteki statyczne.
 rm -f src/portaudio{18,19,}.h
 
 %build
-cd src
-%{__make} \
+%{__make} -C src \
 	CXX="%{__cxx}" \
 	CXXFLAGS="%{rpmcxxflags}" \
 
 %install
 rm -rf $RPM_BUILD_ROOT
 
-cd src
-%{__make} install \
+%{__make} -C src install \
 	DESTDIR=$RPM_BUILD_ROOT \
 	LIBDIR="%{_libdir}"
 
 %clean
 rm -rf $RPM_BUILD_ROOT
 
-%post libs -p /sbin/ldconfig
-%postun libs -p /sbin/ldconfig
+%post	libs -p /sbin/ldconfig
+%postun	libs -p /sbin/ldconfig
 
 %files
 %defattr(644,root,root,755)
@@ -271,8 +269,8 @@ rm -rf $RPM_BUILD_ROOT
 
 %files devel
 %defattr(644,root,root,755)
-%{_includedir}/*
 %attr(755,root,root) %{_libdir}/lib*.so
+%{_includedir}/*
 
 %files static
 %defattr(644,root,root,755)
