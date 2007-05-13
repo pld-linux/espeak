@@ -1,22 +1,15 @@
-#
-# Conditional build:
-%bcond_without	static_libs # don't build static libraries
-#
 Summary:	eSpeak - speech synthesizer for English and other languages
-Summary(pl):	eSpeak - syntezator mowy dla jêzyka angielskiego i innych
+Summary(pl.UTF-8):	eSpeak - syntezator mowy dla jÄ™zyka angielskiego i innych
 Name:		espeak
-Version:	1.21
-Release:	1
+Version:	1.24
+Release:	1	
 License:	GPL v2
 Group:		Applications
 Source0:	http://dl.sourceforge.net/espeak/%{name}-%{version}-source.zip
-# Source0-md5:	554bce374c5e86d2d886d030a5bcf16e
-Patch0:		%{name}-ac_am.patch
+# Source0-md5:	6b00c634a18caca91e8c94ca36675304
+Patch0:		%{name}-Makefile.patch
 URL:		http://espeak.sourceforge.net/
-BuildRequires:	autoconf
-BuildRequires:	automake
 BuildRequires:	libstdc++-devel
-BuildRequires:	libtool
 BuildRequires:	portaudio-devel >= 19
 BuildRequires:	unzip
 Requires:	%{name}-libs = %{version}-%{release}
@@ -52,70 +45,70 @@ as an alternative to Festival for example. As such, it can speak text
 which has been selected into the clipboard, or directly from the
 Konquerer browser or the Kate editor.
 
-%description -l pl
+%description -l pl.UTF-8
 eSpeak to programowy syntezator mowy dla angielskiego i innych
-jêzyków. Odtwarza angielsk± mowê dobrej jako¶ci. U¿ywa innej metody
-syntezy ni¿ inne silniki TTS o otwartych ¼ród³ach i brzmi trochê
-inaczej. Nie jest mo¿e tak naturalny czy "g³adki", ale autor uwa¿a tê
-wymowê za czystsz± i ³atwiejsz± w s³uchaniu na d³u¿sz± metê.
+jÄ™zykÃ³w. Odtwarza angielskÄ… mowÄ™ dobrej jakoÅ›ci. UÅ¼ywa innej metody
+syntezy niÅ¼ inne silniki TTS o otwartych ÅºrÃ³dÅ‚ach i brzmi trochÄ™
+inaczej. Nie jest moÅ¼e tak naturalny czy "gÅ‚adki", ale autor uwaÅ¼a tÄ™
+wymowÄ™ za czystszÄ… i Å‚atwiejszÄ… w sÅ‚uchaniu na dÅ‚uÅ¼szÄ… metÄ™.
 
-- Mo¿e dzia³aæ jako program z linii poleceñ do wymawiania tekstu z
-  pliku lub standardowego wej¶cia; dostêpna jest tak¿e wersja w
+- MoÅ¼e dziaÅ‚aÄ‡ jako program z linii poleceÅ„ do wymawiania tekstu z
+  pliku lub standardowego wejÅ›cia; dostÄ™pna jest takÅ¼e wersja w
   postaci biblioteki (nie w tym pakiecie).
-- Zawiera ró¿ne g³osy, a ich charakterystykê mo¿na zmieniaæ.
-- Potrafi tworzyæ pliki WAV z mow±.
-- Obs³ugiwany (ale nie w pe³ni) jest SSML (Speech Synthesis Markup
+- Zawiera rÃ³Å¼ne gÅ‚osy, a ich charakterystykÄ™ moÅ¼na zmieniaÄ‡.
+- Potrafi tworzyÄ‡ pliki WAV z mowÄ….
+- ObsÅ‚ugiwany (ale nie w peÅ‚ni) jest SSML (Speech Synthesis Markup
   Language)  oraz HTML.
-- Ma³y rozmiar - program i jego dane, wraz z kilkoma jêzykami,
-  mieszcz± siê w oko³o 420kB.
-- Potrafi t³umaczyæ tekst na kody fonemów, wiêc mo¿e byæ zaadaptowany
-  jako frontend dla innych silników syntezy mowy.
-- Potencjalnie mo¿e nadawaæ siê dla innych jêzyków; kilka jest
-  do³±czonych (na przyk³ad j.polski) w ró¿nym stadium zaawansowania.
-  Mile widziana jest pomoc od osób, dla których s± to jêzyki ojczyste.
-- Dostêpne s± narzêdzia programistyczne do tworzenia i dostrajania
-  danych dla fonemów.
+- MaÅ‚y rozmiar - program i jego dane, wraz z kilkoma jÄ™zykami,
+  mieszczÄ… siÄ™ w okoÅ‚o 420kB.
+- Potrafi tÅ‚umaczyÄ‡ tekst na kody fonemÃ³w, wiÄ™c moÅ¼e byÄ‡ zaadaptowany
+  jako frontend dla innych silnikÃ³w syntezy mowy.
+- Potencjalnie moÅ¼e nadawaÄ‡ siÄ™ dla innych jÄ™zykÃ³w; kilka jest
+  doÅ‚Ä…czonych (na przykÅ‚ad j.polski) w rÃ³Å¼nym stadium zaawansowania.
+  Mile widziana jest pomoc od osÃ³b, dla ktÃ³rych sÄ… to jÄ™zyki ojczyste.
+- DostÄ™pne sÄ… narzÄ™dzia programistyczne do tworzenia i dostrajania
+  danych dla fonemÃ³w.
 - Napisany w C++.
 
-Dobrze pracuje jako "mówca" z systemem przetwarzania tekstu na mowê
-KDE (KTTS), na przyk³ad, jako alternatywa dla Festivala. Jako taki,
-mo¿e czytaæ na g³os tekst zaznaczony uprzednio do schowka lub
-bezpo¶rednio z przegl±darki Konqueror i edytora Kate.
+Dobrze pracuje jako "mÃ³wca" z systemem przetwarzania tekstu na mowÄ™
+KDE (KTTS), na przykÅ‚ad, jako alternatywa dla Festivala. Jako taki,
+moÅ¼e czytaÄ‡ na gÅ‚os tekst zaznaczony uprzednio do schowka lub
+bezpoÅ›rednio z przeglÄ…darki Konqueror i edytora Kate.
 
 %package libs
 Summary:	eSpeak shared libraries
-Summary(pl):	eSpeak - biblioteki
+Summary(pl.UTF-8):	eSpeak - biblioteki
 Group:		Libraries
 Obsoletes:	speak-libs
 
 %description libs
 eSpeak shared libraries.
 
-%description libs -l pl
+%description libs -l pl.UTF-8
 eSpeak - biblioteki dzielone.
 
 %package devel
 Summary:	eSpeak - development files
-Summary(pl):	eSpeak - pliki dla programistów
+Summary(pl.UTF-8):	eSpeak - pliki dla programistÃ³w
 Group:		Development/Libraries
 Requires:	%{name}-libs = %{version}-%{release}
 
 %description devel
 eSpeak - development files.
 
-%description devel -l pl
-eSpeak - pliki dla programistów.
+%description devel -l pl.UTF-8
+eSpeak - pliki dla programistÃ³w.
 
 %package static
 Summary:	eSpeak - static libraries
-Summary(pl):	eSpeak - biblioteki statyczne
+Summary(pl.UTF-8):	eSpeak - biblioteki statyczne
 Group:		Development/Libraries
 Requires:	%{name}-devel = %{version}-%{release}
 
 %description static
 eSpeak - static libraries.
 
-%description static -l pl
+%description static -l pl.UTF-8
 eSpeak - biblioteki statyczne.
 
 %prep
@@ -125,20 +118,18 @@ eSpeak - biblioteki statyczne.
 rm -f src/portaudio{18,19,}.h
 
 %build
-%{__libtoolize}
-%{__aclocal}
-%{__autoconf}
-%{__autoheader}
-%{__automake}
-%configure \
-	--enable-static=%{?with_static_libs:yes}%{!?with_static_libs:no}
-%{__make}
+cd src
+%{__make} \
+	CXX="%{__cxx}" \
+	CXXFLAGS="%{rpmcxxflags}" \
 
 %install
 rm -rf $RPM_BUILD_ROOT
 
+cd src
 %{__make} install \
-	DESTDIR=$RPM_BUILD_ROOT
+	DESTDIR=$RPM_BUILD_ROOT \
+	LIBDIR="%{_libdir}"
 
 %clean
 rm -rf $RPM_BUILD_ROOT
@@ -152,15 +143,17 @@ rm -rf $RPM_BUILD_ROOT
 %attr(755,root,root) %{_bindir}/*
 %dir %{_datadir}/%{name}-data
 %dir %{_datadir}/%{name}-data/voices
-%dir %{_datadir}/%{name}-data/voices/en
 %{_datadir}/%{name}-data/voices/af
+%{_datadir}/%{name}-data/voices/cs
 %{_datadir}/%{name}-data/voices/cy
 %{_datadir}/%{name}-data/voices/de
 %{_datadir}/%{name}-data/voices/default
 %{_datadir}/%{name}-data/voices/el
+%dir %{_datadir}/%{name}-data/voices/en
 %{_datadir}/%{name}-data/voices/en/en
 %{_datadir}/%{name}-data/voices/en/en-n
 %{_datadir}/%{name}-data/voices/en/en-r
+%{_datadir}/%{name}-data/voices/en/en-sc
 %{_datadir}/%{name}-data/voices/en/en-wm
 %{_datadir}/%{name}-data/voices/en/en-croak
 %{_datadir}/%{name}-data/voices/en/en-rp
@@ -168,22 +161,56 @@ rm -rf $RPM_BUILD_ROOT
 %{_datadir}/%{name}-data/voices/es
 %{_datadir}/%{name}-data/voices/fi
 %{_datadir}/%{name}-data/voices/fr
-%{_datadir}/%{name}-data/voices/fr-ca
-%{_datadir}/%{name}-data/fr_dict
-%{_datadir}/%{name}-data/hi_dict
+#%%{_datadir}/%{name}-data/voices/fr-ca
 %{_datadir}/%{name}-data/voices/hi
+%{_datadir}/%{name}-data/voices/hr
+%{_datadir}/%{name}-data/voices/hu
 %{_datadir}/%{name}-data/voices/it
 %{_datadir}/%{name}-data/voices/nl
 %{_datadir}/%{name}-data/voices/no
 %{_datadir}/%{name}-data/voices/pl
 %{_datadir}/%{name}-data/voices/pt
+%{_datadir}/%{name}-data/voices/pt-pt
 %{_datadir}/%{name}-data/voices/ro
 %{_datadir}/%{name}-data/voices/ru
+%{_datadir}/%{name}-data/voices/sk
 %{_datadir}/%{name}-data/voices/sv
+%{_datadir}/%{name}-data/voices/sw
 %{_datadir}/%{name}-data/voices/vi
+%{_datadir}/%{name}-data/voices/zhy
+%dir %{_datadir}/%{name}-data/voices/mb
+%{_datadir}/%{name}-data/voices/mb/mb-af1
+%{_datadir}/%{name}-data/voices/mb/mb-af1-en
+%{_datadir}/%{name}-data/voices/mb/mb-cr1
+%{_datadir}/%{name}-data/voices/mb/mb-cz2
+%{_datadir}/%{name}-data/voices/mb/mb-de4
+%{_datadir}/%{name}-data/voices/mb/mb-de5
+%{_datadir}/%{name}-data/voices/mb/mb-de4-en
+%{_datadir}/%{name}-data/voices/mb/mb-de5-en
+%{_datadir}/%{name}-data/voices/mb/mb-en1
+%{_datadir}/%{name}-data/voices/mb/mb-fr1
+%{_datadir}/%{name}-data/voices/mb/mb-fr1-en
+%{_datadir}/%{name}-data/voices/mb/mb-fr4
+%{_datadir}/%{name}-data/voices/mb/mb-fr4-en
+%{_datadir}/%{name}-data/voices/mb/mb-hu1
+%{_datadir}/%{name}-data/voices/mb/mb-hu1-en
+%{_datadir}/%{name}-data/voices/mb/mb-nl2
+%{_datadir}/%{name}-data/voices/mb/mb-nl2-en
+%{_datadir}/%{name}-data/voices/mb/mb-pl1
+%{_datadir}/%{name}-data/voices/mb/mb-pl1-en
+%{_datadir}/%{name}-data/voices/mb/mb-ro1
+%{_datadir}/%{name}-data/voices/mb/mb-ro1-en
+%{_datadir}/%{name}-data/voices/mb/mb-sw1
+%{_datadir}/%{name}-data/voices/mb/mb-sw1-en
+%{_datadir}/%{name}-data/voices/mb/mb-sw2
+%{_datadir}/%{name}-data/voices/mb/mb-sw2-en
+%{_datadir}/%{name}-data/voices/mb/mb-us1
+%{_datadir}/%{name}-data/voices/mb/mb-us2
+%{_datadir}/%{name}-data/voices/mb/mb-us3
 %dir %{_datadir}/%{name}-data/soundicons
 %{_datadir}/%{name}-data/af_dict
 %{_datadir}/%{name}-data/config
+%{_datadir}/%{name}-data/cs_dict
 %{_datadir}/%{name}-data/cy_dict
 %{_datadir}/%{name}-data/de_dict
 %{_datadir}/%{name}-data/en_dict
@@ -191,6 +218,10 @@ rm -rf $RPM_BUILD_ROOT
 %{_datadir}/%{name}-data/el_dict
 %{_datadir}/%{name}-data/es_dict
 %{_datadir}/%{name}-data/fi_dict
+%{_datadir}/%{name}-data/fr_dict
+%{_datadir}/%{name}-data/hi_dict
+%{_datadir}/%{name}-data/hr_dict
+%{_datadir}/%{name}-data/hu_dict
 %{_datadir}/%{name}-data/it_dict
 %{_datadir}/%{name}-data/nl_dict
 %{_datadir}/%{name}-data/no_dict
@@ -201,8 +232,27 @@ rm -rf $RPM_BUILD_ROOT
 %{_datadir}/%{name}-data/pt_dict
 %{_datadir}/%{name}-data/ro_dict
 %{_datadir}/%{name}-data/ru_dict
+%{_datadir}/%{name}-data/sk_dict
 %{_datadir}/%{name}-data/sv_dict
+%{_datadir}/%{name}-data/sw_dict
 %{_datadir}/%{name}-data/vi_dict
+%{_datadir}/%{name}-data/zhy_dict
+%dir %{_datadir}/%{name}-data/mbrola_ph
+%{_datadir}/%{name}-data/mbrola_ph/af1_phtrans
+%{_datadir}/%{name}-data/mbrola_ph/ca1_phtrans
+%{_datadir}/%{name}-data/mbrola_ph/cr1_phtrans
+%{_datadir}/%{name}-data/mbrola_ph/cs_phtrans
+%{_datadir}/%{name}-data/mbrola_ph/de4_phtrans
+%{_datadir}/%{name}-data/mbrola_ph/de5_phtrans
+%{_datadir}/%{name}-data/mbrola_ph/en1_phtrans
+%{_datadir}/%{name}-data/mbrola_ph/fr1_phtrans
+%{_datadir}/%{name}-data/mbrola_ph/hu1_phtrans
+%{_datadir}/%{name}-data/mbrola_ph/nl_phtrans
+%{_datadir}/%{name}-data/mbrola_ph/pl1_phtrans
+%{_datadir}/%{name}-data/mbrola_ph/ro1_phtrans
+%{_datadir}/%{name}-data/mbrola_ph/sv_phtrans
+%{_datadir}/%{name}-data/mbrola_ph/us3_phtrans
+%{_datadir}/%{name}-data/mbrola_ph/us_phtrans
 %dir %{_datadir}/%{name}-data/voices/!v
 %{_datadir}/%{name}-data/voices/!v/!variant1
 %{_datadir}/%{name}-data/voices/!v/!variant11
@@ -213,6 +263,7 @@ rm -rf $RPM_BUILD_ROOT
 %{_datadir}/%{name}-data/voices/!v/!variant3
 %{_datadir}/%{name}-data/voices/!v/!variant4
 %{_datadir}/%{name}-data/voices/!v/!variant5
+%{_datadir}/%{name}-data/voices/!v/!variant6
 
 %files libs
 %defattr(644,root,root,755)
@@ -222,10 +273,7 @@ rm -rf $RPM_BUILD_ROOT
 %defattr(644,root,root,755)
 %{_includedir}/*
 %attr(755,root,root) %{_libdir}/lib*.so
-%{_libdir}/lib*.la
 
-%if %{with static_libs}
 %files static
 %defattr(644,root,root,755)
 %{_libdir}/lib*.a
-%endif
