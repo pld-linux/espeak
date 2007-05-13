@@ -1,0 +1,11 @@
+--- espeak-1.24-source/src/Makefile~	2007-05-13 20:29:22.000000000 +0200
++++ espeak-1.24-source/src/Makefile	2007-05-13 20:19:32.000000000 +0200
+@@ -57,7 +57,7 @@
+ 
+ 
+ x_%.o: %.cpp
+-	$(CXX) $(CXXFLAGS) -Wall -fpic -fvisibility=hidden -pedantic \
++	$(CXX) $(CXXFLAGS) -Wall -fpic -pedantic \
+ 	-I. -D LIBRARY -c -fno-exceptions $<  -o x_$*.o
+ 
+ $(LIB_NAME): $(OBJS2)
