@@ -2,7 +2,7 @@ Summary:	eSpeak - speech synthesizer for English and other languages
 Summary(pl.UTF-8):	eSpeak - syntezator mowy dla języka angielskiego i innych
 Name:		espeak
 Version:	1.26
-Release:	1
+Release:	0.1
 License:	GPL v2
 Group:		Applications
 Source0:	http://dl.sourceforge.net/espeak/%{name}-%{version}-source.zip
@@ -161,6 +161,7 @@ rm -rf $RPM_BUILD_ROOT
 %{_datadir}/%{name}-data/voices/hi
 %{_datadir}/%{name}-data/voices/hr
 %{_datadir}/%{name}-data/voices/hu
+%{_datadir}/%{name}-data/voices/is
 %{_datadir}/%{name}-data/voices/it
 %{_datadir}/%{name}-data/voices/nl
 %{_datadir}/%{name}-data/voices/no
@@ -189,6 +190,8 @@ rm -rf $RPM_BUILD_ROOT
 %{_datadir}/%{name}-data/voices/mb/mb-fr1-en
 %{_datadir}/%{name}-data/voices/mb/mb-fr4
 %{_datadir}/%{name}-data/voices/mb/mb-fr4-en
+%{_datadir}/%{name}-data/voices/mb/mb-gr2
+%{_datadir}/%{name}-data/voices/mb/mb-gr2-en
 %{_datadir}/%{name}-data/voices/mb/mb-hu1
 %{_datadir}/%{name}-data/voices/mb/mb-hu1-en
 %{_datadir}/%{name}-data/voices/mb/mb-nl2
@@ -219,6 +222,7 @@ rm -rf $RPM_BUILD_ROOT
 %{_datadir}/%{name}-data/hi_dict
 %{_datadir}/%{name}-data/hr_dict
 %{_datadir}/%{name}-data/hu_dict
+%{_datadir}/%{name}-data/is_dict
 %{_datadir}/%{name}-data/it_dict
 %{_datadir}/%{name}-data/nl_dict
 %{_datadir}/%{name}-data/no_dict
@@ -243,6 +247,7 @@ rm -rf $RPM_BUILD_ROOT
 %{_datadir}/%{name}-data/mbrola_ph/de5_phtrans
 %{_datadir}/%{name}-data/mbrola_ph/en1_phtrans
 %{_datadir}/%{name}-data/mbrola_ph/fr1_phtrans
+%{_datadir}/%{name}-data/mbrola_ph/gr2_phtrans
 %{_datadir}/%{name}-data/mbrola_ph/hu1_phtrans
 %{_datadir}/%{name}-data/mbrola_ph/nl_phtrans
 %{_datadir}/%{name}-data/mbrola_ph/pl1_phtrans
