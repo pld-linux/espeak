@@ -1,12 +1,12 @@
 Summary:	eSpeak - speech synthesizer for English and other languages
 Summary(pl.UTF-8):	eSpeak - syntezator mowy dla języka angielskiego i innych
 Name:		espeak
-Version:	1.26
-Release:	0.1
+Version:	1.29
+Release:	1
 License:	GPL v2
 Group:		Applications
 Source0:	http://dl.sourceforge.net/espeak/%{name}-%{version}-source.zip
-# Source0-md5:	fa29ac3c24df96925b4df98f3f19e2be
+# Source0-md5:	fb928c65f27f4096bfcaf0cefe0a091c
 URL:		http://espeak.sourceforge.net/
 BuildRequires:	libstdc++-devel
 BuildRequires:	portaudio-devel >= 19
@@ -140,6 +140,7 @@ rm -rf $RPM_BUILD_ROOT
 %dir %{_datadir}/%{name}-data
 %dir %{_datadir}/%{name}-data/voices
 %{_datadir}/%{name}-data/voices/af
+%{_datadir}/%{name}-data/voices/bs
 %{_datadir}/%{name}-data/voices/cs
 %{_datadir}/%{name}-data/voices/cy
 %{_datadir}/%{name}-data/voices/de
@@ -151,18 +152,17 @@ rm -rf $RPM_BUILD_ROOT
 %{_datadir}/%{name}-data/voices/en/en-r
 %{_datadir}/%{name}-data/voices/en/en-sc
 %{_datadir}/%{name}-data/voices/en/en-wm
-%{_datadir}/%{name}-data/voices/en/en-croak
 %{_datadir}/%{name}-data/voices/en/en-rp
 %{_datadir}/%{name}-data/voices/eo
 %{_datadir}/%{name}-data/voices/es
 %{_datadir}/%{name}-data/voices/fi
 %{_datadir}/%{name}-data/voices/fr
-#%%{_datadir}/%{name}-data/voices/fr-ca
 %{_datadir}/%{name}-data/voices/hi
 %{_datadir}/%{name}-data/voices/hr
 %{_datadir}/%{name}-data/voices/hu
 %{_datadir}/%{name}-data/voices/is
 %{_datadir}/%{name}-data/voices/it
+%{_datadir}/%{name}-data/voices/la
 %{_datadir}/%{name}-data/voices/nl
 %{_datadir}/%{name}-data/voices/no
 %{_datadir}/%{name}-data/voices/pl
@@ -212,6 +212,7 @@ rm -rf $RPM_BUILD_ROOT
 %{_datadir}/%{name}-data/config
 %{_datadir}/%{name}-data/cs_dict
 %{_datadir}/%{name}-data/cy_dict
+%{_datadir}/%{name}-data/la_dict
 %{_datadir}/%{name}-data/de_dict
 %{_datadir}/%{name}-data/en_dict
 %{_datadir}/%{name}-data/eo_dict
@@ -249,23 +250,33 @@ rm -rf $RPM_BUILD_ROOT
 %{_datadir}/%{name}-data/mbrola_ph/fr1_phtrans
 %{_datadir}/%{name}-data/mbrola_ph/gr2_phtrans
 %{_datadir}/%{name}-data/mbrola_ph/hu1_phtrans
+%{_datadir}/%{name}-data/mbrola_ph/it3_phtrans
+%{_datadir}/%{name}-data/mbrola_ph/la1_phtrans
 %{_datadir}/%{name}-data/mbrola_ph/nl_phtrans
 %{_datadir}/%{name}-data/mbrola_ph/pl1_phtrans
 %{_datadir}/%{name}-data/mbrola_ph/ro1_phtrans
 %{_datadir}/%{name}-data/mbrola_ph/sv_phtrans
-%{_datadir}/%{name}-data/mbrola_ph/us3_phtrans
+%{_datadir}/%{name}-data/mbrola_ph/sv2_phtrans
 %{_datadir}/%{name}-data/mbrola_ph/us_phtrans
+%{_datadir}/%{name}-data/mbrola_ph/us3_phtrans
+%{_datadir}/%{name}-data/mk_dict
 %dir %{_datadir}/%{name}-data/voices/!v
-%{_datadir}/%{name}-data/voices/!v/!variant1
-%{_datadir}/%{name}-data/voices/!v/!variant11
-%{_datadir}/%{name}-data/voices/!v/!variant12
-%{_datadir}/%{name}-data/voices/!v/!variant13
-%{_datadir}/%{name}-data/voices/!v/!variant14
-%{_datadir}/%{name}-data/voices/!v/!variant2
-%{_datadir}/%{name}-data/voices/!v/!variant3
-%{_datadir}/%{name}-data/voices/!v/!variant4
-%{_datadir}/%{name}-data/voices/!v/!variant5
-%{_datadir}/%{name}-data/voices/!v/!variant6
+%{_datadir}/%{name}-data/voices/!v/croak
+%{_datadir}/%{name}-data/voices/!v/f1
+%{_datadir}/%{name}-data/voices/!v/f2
+%{_datadir}/%{name}-data/voices/!v/f3
+%{_datadir}/%{name}-data/voices/!v/f4
+%{_datadir}/%{name}-data/voices/!v/m1
+%{_datadir}/%{name}-data/voices/!v/m2
+%{_datadir}/%{name}-data/voices/!v/m3
+%{_datadir}/%{name}-data/voices/!v/m4
+%{_datadir}/%{name}-data/voices/!v/m5
+%{_datadir}/%{name}-data/voices/!v/m6
+%{_datadir}/%{name}-data/voices/!v/wisper
+%{_datadir}/%{name}-data/voices/mb/mb-it3
+%{_datadir}/%{name}-data/voices/mb/mb-it4
+%{_datadir}/%{name}-data/voices/mb/mb-la1
+%{_datadir}/%{name}-data/voices/mk
 
 %files libs
 %defattr(644,root,root,755)
