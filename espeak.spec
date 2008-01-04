@@ -1,12 +1,12 @@
 Summary:	eSpeak - speech synthesizer for English and other languages
 Summary(pl.UTF-8):	eSpeak - syntezator mowy dla języka angielskiego i innych
 Name:		espeak
-Version:	1.29
+Version:	1.30
 Release:	1
 License:	GPL v2
 Group:		Applications
 Source0:	http://dl.sourceforge.net/espeak/%{name}-%{version}-source.zip
-# Source0-md5:	fb928c65f27f4096bfcaf0cefe0a091c
+# Source0-md5:	ac0869d3bb9a6254b40ecde9a77d88df
 URL:		http://espeak.sourceforge.net/
 BuildRequires:	libstdc++-devel
 BuildRequires:	portaudio-devel >= 19
@@ -34,8 +34,8 @@ periods.
 - Can translate text to phoneme codes, so it could be adapted as a
   front end for another speech synthesis engine.
 - Potential for other languages. Several are included (e.g. Polish
-  language) in varying stages of progress. Help from native speakers
-  for these or other languages is welcomed.
+  language) in varying stages of progress. Help from native speakers for
+  these or other languages is welcomed.
 - Development tools available for producing and tuning phoneme data.
 - Written in C++.
 
@@ -46,10 +46,11 @@ Konquerer browser or the Kate editor.
 
 %description -l pl.UTF-8
 eSpeak to programowy syntezator mowy dla angielskiego i innych
-języków. Odtwarza angielską mowę dobrej jakości. Używa innej metody
-syntezy niż inne silniki TTS o otwartych źródłach i brzmi trochę
-inaczej. Nie jest może tak naturalny czy "gładki", ale autor uważa tę
-wymowę za czystszą i łatwiejszą w słuchaniu na dłuższą metę.
+języków. Odtwarza angielską mowę dobrej jakości. Używa innej
+metody syntezy niż inne silniki TTS o otwartych źródłach i brzmi
+trochę inaczej. Nie jest może tak naturalny czy "gładki", ale autor
+uważa tę wymowę za czystszą i łatwiejszą w słuchaniu na
+dłuższą metę.
 
 - Może działać jako program z linii poleceń do wymawiania tekstu z
   pliku lub standardowego wejścia; dostępna jest także wersja w
@@ -57,14 +58,15 @@ wymowę za czystszą i łatwiejszą w słuchaniu na dłuższą metę.
 - Zawiera różne głosy, a ich charakterystykę można zmieniać.
 - Potrafi tworzyć pliki WAV z mową.
 - Obsługiwany (ale nie w pełni) jest SSML (Speech Synthesis Markup
-  Language)  oraz HTML.
+  Language) oraz HTML.
 - Mały rozmiar - program i jego dane, wraz z kilkoma językami,
   mieszczą się w około 420kB.
-- Potrafi tłumaczyć tekst na kody fonemów, więc może być zaadaptowany
-  jako frontend dla innych silników syntezy mowy.
+- Potrafi tłumaczyć tekst na kody fonemów, więc może być
+  zaadaptowany jako frontend dla innych silników syntezy mowy.
 - Potencjalnie może nadawać się dla innych języków; kilka jest
-  dołączonych (na przykład j.polski) w różnym stadium zaawansowania.
-  Mile widziana jest pomoc od osób, dla których są to języki ojczyste.
+  dołączonych (na przykład j.polski) w różnym stadium
+  zaawansowania. Mile widziana jest pomoc od osób, dla których są to
+  języki ojczyste.
 - Dostępne są narzędzia programistyczne do tworzenia i dostrajania
   danych dla fonemów.
 - Napisany w C++.
@@ -112,7 +114,7 @@ eSpeak - biblioteki statyczne.
 
 %prep
 %setup -q -n %{name}-%{version}-source
-# remove pernicious headers to avoid using them during build instead of /usr/include/portaudio.h system header
+# remove pernicious headers to avoid using them during build instead of %{_includedir}/portaudio.h system header
 rm -f src/portaudio{18,19,}.h
 
 %build
@@ -153,10 +155,12 @@ rm -rf $RPM_BUILD_ROOT
 %{_datadir}/%{name}-data/voices/en/en-sc
 %{_datadir}/%{name}-data/voices/en/en-wm
 %{_datadir}/%{name}-data/voices/en/en-rp
+%{_datadir}/%{name}-data/voices/en/en-wi
 %{_datadir}/%{name}-data/voices/eo
 %{_datadir}/%{name}-data/voices/es
 %{_datadir}/%{name}-data/voices/fi
 %{_datadir}/%{name}-data/voices/fr
+%{_datadir}/%{name}-data/voices/grc
 %{_datadir}/%{name}-data/voices/hi
 %{_datadir}/%{name}-data/voices/hr
 %{_datadir}/%{name}-data/voices/hu
@@ -171,9 +175,12 @@ rm -rf $RPM_BUILD_ROOT
 %{_datadir}/%{name}-data/voices/ro
 %{_datadir}/%{name}-data/voices/ru
 %{_datadir}/%{name}-data/voices/sk
+%{_datadir}/%{name}-data/voices/sr
 %{_datadir}/%{name}-data/voices/sv
 %{_datadir}/%{name}-data/voices/sw
+%{_datadir}/%{name}-data/voices/ta
 %{_datadir}/%{name}-data/voices/vi
+%{_datadir}/%{name}-data/voices/zh
 %{_datadir}/%{name}-data/voices/zhy
 %dir %{_datadir}/%{name}-data/voices/mb
 %{_datadir}/%{name}-data/voices/mb/mb-af1
@@ -184,6 +191,8 @@ rm -rf $RPM_BUILD_ROOT
 %{_datadir}/%{name}-data/voices/mb/mb-de5
 %{_datadir}/%{name}-data/voices/mb/mb-de4-en
 %{_datadir}/%{name}-data/voices/mb/mb-de5-en
+%{_datadir}/%{name}-data/voices/mb/mb-de6
+%{_datadir}/%{name}-data/voices/mb/mb-de6-grc
 %{_datadir}/%{name}-data/voices/mb/mb-de7
 %{_datadir}/%{name}-data/voices/mb/mb-en1
 %{_datadir}/%{name}-data/voices/mb/mb-fr1
@@ -220,8 +229,9 @@ rm -rf $RPM_BUILD_ROOT
 %{_datadir}/%{name}-data/es_dict
 %{_datadir}/%{name}-data/fi_dict
 %{_datadir}/%{name}-data/fr_dict
+%{_datadir}/%{name}-data/grc_dict
+%{_datadir}/%{name}-data/hbs_dict
 %{_datadir}/%{name}-data/hi_dict
-%{_datadir}/%{name}-data/hr_dict
 %{_datadir}/%{name}-data/hu_dict
 %{_datadir}/%{name}-data/is_dict
 %{_datadir}/%{name}-data/it_dict
@@ -237,7 +247,9 @@ rm -rf $RPM_BUILD_ROOT
 %{_datadir}/%{name}-data/sk_dict
 %{_datadir}/%{name}-data/sv_dict
 %{_datadir}/%{name}-data/sw_dict
+%{_datadir}/%{name}-data/ta_dict
 %{_datadir}/%{name}-data/vi_dict
+%{_datadir}/%{name}-data/zh_dict
 %{_datadir}/%{name}-data/zhy_dict
 %dir %{_datadir}/%{name}-data/mbrola_ph
 %{_datadir}/%{name}-data/mbrola_ph/af1_phtrans
@@ -245,10 +257,11 @@ rm -rf $RPM_BUILD_ROOT
 %{_datadir}/%{name}-data/mbrola_ph/cr1_phtrans
 %{_datadir}/%{name}-data/mbrola_ph/cs_phtrans
 %{_datadir}/%{name}-data/mbrola_ph/de4_phtrans
-%{_datadir}/%{name}-data/mbrola_ph/de5_phtrans
+%{_datadir}/%{name}-data/mbrola_ph/de6_phtrans
 %{_datadir}/%{name}-data/mbrola_ph/en1_phtrans
 %{_datadir}/%{name}-data/mbrola_ph/fr1_phtrans
 %{_datadir}/%{name}-data/mbrola_ph/gr2_phtrans
+%{_datadir}/%{name}-data/mbrola_ph/grc-de6_phtrans
 %{_datadir}/%{name}-data/mbrola_ph/hu1_phtrans
 %{_datadir}/%{name}-data/mbrola_ph/it3_phtrans
 %{_datadir}/%{name}-data/mbrola_ph/la1_phtrans
@@ -272,7 +285,9 @@ rm -rf $RPM_BUILD_ROOT
 %{_datadir}/%{name}-data/voices/!v/m4
 %{_datadir}/%{name}-data/voices/!v/m5
 %{_datadir}/%{name}-data/voices/!v/m6
+%{_datadir}/%{name}-data/voices/!v/test
 %{_datadir}/%{name}-data/voices/!v/wisper
+%{_datadir}/%{name}-data/voices/!v/whisper
 %{_datadir}/%{name}-data/voices/mb/mb-it3
 %{_datadir}/%{name}-data/voices/mb/mb-it4
 %{_datadir}/%{name}-data/voices/mb/mb-la1
