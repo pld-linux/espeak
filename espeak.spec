@@ -1,12 +1,12 @@
 Summary:	eSpeak - speech synthesizer for English and other languages
 Summary(pl.UTF-8):	eSpeak - syntezator mowy dla języka angielskiego i innych
 Name:		espeak
-Version:	1.30
+Version:	1.31
 Release:	1
 License:	GPL v2
 Group:		Applications
 Source0:	http://dl.sourceforge.net/espeak/%{name}-%{version}-source.zip
-# Source0-md5:	ac0869d3bb9a6254b40ecde9a77d88df
+# Source0-md5:	e11f04354af42677729b0f22ce891d71
 URL:		http://espeak.sourceforge.net/
 BuildRequires:	libstdc++-devel
 BuildRequires:	portaudio-devel >= 19
@@ -166,6 +166,7 @@ rm -rf $RPM_BUILD_ROOT
 %{_datadir}/%{name}-data/voices/hu
 %{_datadir}/%{name}-data/voices/is
 %{_datadir}/%{name}-data/voices/it
+%{_datadir}/%{name}-data/voices/jbo
 %{_datadir}/%{name}-data/voices/la
 %{_datadir}/%{name}-data/voices/nl
 %{_datadir}/%{name}-data/voices/no
@@ -178,7 +179,7 @@ rm -rf $RPM_BUILD_ROOT
 %{_datadir}/%{name}-data/voices/sr
 %{_datadir}/%{name}-data/voices/sv
 %{_datadir}/%{name}-data/voices/sw
-%{_datadir}/%{name}-data/voices/ta
+#%{_datadir}/%{name}-data/voices/ta
 %{_datadir}/%{name}-data/voices/vi
 %{_datadir}/%{name}-data/voices/zh
 %{_datadir}/%{name}-data/voices/zhy
@@ -235,6 +236,7 @@ rm -rf $RPM_BUILD_ROOT
 %{_datadir}/%{name}-data/hu_dict
 %{_datadir}/%{name}-data/is_dict
 %{_datadir}/%{name}-data/it_dict
+%{_datadir}/%{name}-data/jbo_dict
 %{_datadir}/%{name}-data/nl_dict
 %{_datadir}/%{name}-data/no_dict
 %{_datadir}/%{name}-data/phondata
@@ -247,7 +249,7 @@ rm -rf $RPM_BUILD_ROOT
 %{_datadir}/%{name}-data/sk_dict
 %{_datadir}/%{name}-data/sv_dict
 %{_datadir}/%{name}-data/sw_dict
-%{_datadir}/%{name}-data/ta_dict
+#%{_datadir}/%{name}-data/ta_dict
 %{_datadir}/%{name}-data/vi_dict
 %{_datadir}/%{name}-data/zh_dict
 %{_datadir}/%{name}-data/zhy_dict
