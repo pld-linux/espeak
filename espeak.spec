@@ -117,6 +117,10 @@ eSpeak - biblioteki statyczne.
 # remove pernicious headers to avoid using them during build instead of %{_includedir}/portaudio.h system header
 rm -f src/portaudio{18,19,}.h
 
+%ifarch sparc64
+sed -i -e 's/-fpic/-fPIC/g' src/Makefile
+%endif
+
 %build
 %{__make} -C src \
 	CXX="%{__cxx}" \
