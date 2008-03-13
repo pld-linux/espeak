@@ -1,12 +1,12 @@
 Summary:	eSpeak - speech synthesizer for English and other languages
 Summary(pl.UTF-8):	eSpeak - syntezator mowy dla języka angielskiego i innych
 Name:		espeak
-Version:	1.31
+Version:	1.36
 Release:	1
 License:	GPL v2
 Group:		Applications
 Source0:	http://dl.sourceforge.net/espeak/%{name}-%{version}-source.zip
-# Source0-md5:	e11f04354af42677729b0f22ce891d71
+# Source0-md5:	df2ebbe3d771e21be7de4ba53d28a4b0
 URL:		http://espeak.sourceforge.net/
 BuildRequires:	libstdc++-devel
 BuildRequires:	portaudio-devel >= 19
@@ -162,15 +162,18 @@ rm -rf $RPM_BUILD_ROOT
 %{_datadir}/%{name}-data/voices/en/en-wi
 %{_datadir}/%{name}-data/voices/eo
 %{_datadir}/%{name}-data/voices/es
+%{_datadir}/%{name}-data/voices/es-la
 %{_datadir}/%{name}-data/voices/fi
 %{_datadir}/%{name}-data/voices/fr
 %{_datadir}/%{name}-data/voices/grc
 %{_datadir}/%{name}-data/voices/hi
 %{_datadir}/%{name}-data/voices/hr
 %{_datadir}/%{name}-data/voices/hu
+%{_datadir}/%{name}-data/voices/id
 %{_datadir}/%{name}-data/voices/is
 %{_datadir}/%{name}-data/voices/it
 %{_datadir}/%{name}-data/voices/jbo
+%{_datadir}/%{name}-data/voices/ku
 %{_datadir}/%{name}-data/voices/la
 %{_datadir}/%{name}-data/voices/nl
 %{_datadir}/%{name}-data/voices/no
@@ -183,7 +186,9 @@ rm -rf $RPM_BUILD_ROOT
 %{_datadir}/%{name}-data/voices/sr
 %{_datadir}/%{name}-data/voices/sv
 %{_datadir}/%{name}-data/voices/sw
-#%{_datadir}/%{name}-data/voices/ta
+%{_datadir}/%{name}-data/voices/tr
+%{_datadir}/%{name}-data/ta_dict
+%{_datadir}/%{name}-data/tr_dict
 %{_datadir}/%{name}-data/voices/vi
 %{_datadir}/%{name}-data/voices/zh
 %{_datadir}/%{name}-data/voices/zhy
@@ -238,9 +243,11 @@ rm -rf $RPM_BUILD_ROOT
 %{_datadir}/%{name}-data/hbs_dict
 %{_datadir}/%{name}-data/hi_dict
 %{_datadir}/%{name}-data/hu_dict
+%{_datadir}/%{name}-data/id_dict
 %{_datadir}/%{name}-data/is_dict
 %{_datadir}/%{name}-data/it_dict
 %{_datadir}/%{name}-data/jbo_dict
+%{_datadir}/%{name}-data/ku_dict
 %{_datadir}/%{name}-data/nl_dict
 %{_datadir}/%{name}-data/no_dict
 %{_datadir}/%{name}-data/phondata
@@ -269,6 +276,8 @@ rm -rf $RPM_BUILD_ROOT
 %{_datadir}/%{name}-data/mbrola_ph/gr2_phtrans
 %{_datadir}/%{name}-data/mbrola_ph/grc-de6_phtrans
 %{_datadir}/%{name}-data/mbrola_ph/hu1_phtrans
+%{_datadir}/%{name}-data/mbrola_ph/id1_phtrans
+%{_datadir}/%{name}-data/mbrola_ph/in1_phtrans
 %{_datadir}/%{name}-data/mbrola_ph/it3_phtrans
 %{_datadir}/%{name}-data/mbrola_ph/la1_phtrans
 %{_datadir}/%{name}-data/mbrola_ph/nl_phtrans
@@ -291,13 +300,14 @@ rm -rf $RPM_BUILD_ROOT
 %{_datadir}/%{name}-data/voices/!v/m4
 %{_datadir}/%{name}-data/voices/!v/m5
 %{_datadir}/%{name}-data/voices/!v/m6
-%{_datadir}/%{name}-data/voices/!v/test
 %{_datadir}/%{name}-data/voices/!v/wisper
 %{_datadir}/%{name}-data/voices/!v/whisper
+%{_datadir}/%{name}-data/voices/mb/mb-id1
 %{_datadir}/%{name}-data/voices/mb/mb-it3
 %{_datadir}/%{name}-data/voices/mb/mb-it4
 %{_datadir}/%{name}-data/voices/mb/mb-la1
 %{_datadir}/%{name}-data/voices/mk
+%{_datadir}/%{name}-data/voices/ta
 
 %files libs
 %defattr(644,root,root,755)
