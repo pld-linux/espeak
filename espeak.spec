@@ -1,12 +1,12 @@
 Summary:	eSpeak - speech synthesizer for English and other languages
 Summary(pl.UTF-8):	eSpeak - syntezator mowy dla języka angielskiego i innych
 Name:		espeak
-Version:	1.36
+Version:	1.37
 Release:	1
 License:	GPL v2
 Group:		Applications
 Source0:	http://dl.sourceforge.net/espeak/%{name}-%{version}-source.zip
-# Source0-md5:	df2ebbe3d771e21be7de4ba53d28a4b0
+# Source0-md5:	5c7b292d0537232868b4ac1317d76c02
 URL:		http://espeak.sourceforge.net/
 BuildRequires:	libstdc++-devel
 BuildRequires:	portaudio-devel >= 19
@@ -272,6 +272,8 @@ rm -rf $RPM_BUILD_ROOT
 %{_datadir}/%{name}-data/mbrola_ph/de4_phtrans
 %{_datadir}/%{name}-data/mbrola_ph/de6_phtrans
 %{_datadir}/%{name}-data/mbrola_ph/en1_phtrans
+%{_datadir}/%{name}-data/mbrola_ph/es4_phtrans
+%{_datadir}/%{name}-data/mbrola_ph/es_phtrans
 %{_datadir}/%{name}-data/mbrola_ph/fr1_phtrans
 %{_datadir}/%{name}-data/mbrola_ph/gr2_phtrans
 %{_datadir}/%{name}-data/mbrola_ph/grc-de6_phtrans
@@ -302,6 +304,8 @@ rm -rf $RPM_BUILD_ROOT
 %{_datadir}/%{name}-data/voices/!v/m6
 %{_datadir}/%{name}-data/voices/!v/wisper
 %{_datadir}/%{name}-data/voices/!v/whisper
+%{_datadir}/%{name}-data/voices/mb/mb-es1
+%{_datadir}/%{name}-data/voices/mb/mb-es2
 %{_datadir}/%{name}-data/voices/mb/mb-id1
 %{_datadir}/%{name}-data/voices/mb/mb-it3
 %{_datadir}/%{name}-data/voices/mb/mb-it4
