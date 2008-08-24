@@ -1,12 +1,12 @@
 Summary:	eSpeak - speech synthesizer for English and other languages
 Summary(pl.UTF-8):	eSpeak - syntezator mowy dla języka angielskiego i innych
 Name:		espeak
-Version:	1.37
+Version:	1.38
 Release:	1
 License:	GPL v2
 Group:		Applications
 Source0:	http://dl.sourceforge.net/espeak/%{name}-%{version}-source.zip
-# Source0-md5:	5c7b292d0537232868b4ac1317d76c02
+# Source0-md5:	d599acc68372d189e23c3add4bbb0ff0
 URL:		http://espeak.sourceforge.net/
 BuildRequires:	libstdc++-devel
 BuildRequires:	portaudio-devel >= 19
@@ -165,6 +165,7 @@ rm -rf $RPM_BUILD_ROOT
 %{_datadir}/%{name}-data/voices/es-la
 %{_datadir}/%{name}-data/voices/fi
 %{_datadir}/%{name}-data/voices/fr
+%{_datadir}/%{name}-data/voices/fr-be
 %{_datadir}/%{name}-data/voices/grc
 %{_datadir}/%{name}-data/voices/hi
 %{_datadir}/%{name}-data/voices/hr
@@ -289,6 +290,9 @@ rm -rf $RPM_BUILD_ROOT
 %{_datadir}/%{name}-data/mbrola_ph/sv2_phtrans
 %{_datadir}/%{name}-data/mbrola_ph/us_phtrans
 %{_datadir}/%{name}-data/mbrola_ph/us3_phtrans
+%{_datadir}/%{name}-data/mbrola_ph/de2_phtrans
+%{_datadir}/%{name}-data/mbrola_ph/ptbr4_phtrans
+%{_datadir}/%{name}-data/mbrola_ph/ptbr_phtrans
 %{_datadir}/%{name}-data/mk_dict
 %dir %{_datadir}/%{name}-data/voices/!v
 %{_datadir}/%{name}-data/voices/!v/croak
@@ -302,8 +306,11 @@ rm -rf $RPM_BUILD_ROOT
 %{_datadir}/%{name}-data/voices/!v/m4
 %{_datadir}/%{name}-data/voices/!v/m5
 %{_datadir}/%{name}-data/voices/!v/m6
-%{_datadir}/%{name}-data/voices/!v/wisper
 %{_datadir}/%{name}-data/voices/!v/whisper
+%{_datadir}/%{name}-data/voices/mb/mb-br1
+%{_datadir}/%{name}-data/voices/mb/mb-br3
+%{_datadir}/%{name}-data/voices/mb/mb-br4
+%{_datadir}/%{name}-data/voices/mb/mb-de2
 %{_datadir}/%{name}-data/voices/mb/mb-es1
 %{_datadir}/%{name}-data/voices/mb/mb-es2
 %{_datadir}/%{name}-data/voices/mb/mb-id1
