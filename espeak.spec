@@ -323,7 +323,7 @@ rm -rf $RPM_BUILD_ROOT
 %files libs
 %defattr(644,root,root,755)
 %attr(755,root,root) %{_libdir}/lib*.so.*.*.*
-%ghost %attr(755,root,root) %{_libdir}/lib*.so.[0-9]
+%attr(755,root,root) %ghost %{_libdir}/lib*.so.[0-9]
 
 %files devel
 %defattr(644,root,root,755)
