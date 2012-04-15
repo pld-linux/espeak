@@ -1,12 +1,12 @@
 Summary:	eSpeak - speech synthesizer for English and other languages
 Summary(pl.UTF-8):	eSpeak - syntezator mowy dla języka angielskiego i innych
 Name:		espeak
-Version:	1.45.04
+Version:	1.46.02
 Release:	1
 License:	GPL v2
 Group:		Applications
 Source0:	http://downloads.sourceforge.net/espeak/%{name}-%{version}-source.zip
-# Source0-md5:	6e810d2786b55cddb34f31b3eb813507
+# Source0-md5:	84e8e44562f05a3afc5427218afc8af1
 URL:		http://espeak.sourceforge.net/
 BuildRequires:	libstdc++-devel
 BuildRequires:	portaudio-devel >= 19
@@ -115,7 +115,7 @@ eSpeak - biblioteki statyczne.
 %prep
 %setup -q -n %{name}-%{version}-source
 # remove pernicious headers to avoid using them during build instead of %{_includedir}/portaudio.h system header
-rm -f src/portaudio{18,19,}.h
+%{__rm} src/portaudio{18,19,}.h
 
 %ifarch sparc64
 sed -i -e 's/-fpic/-fPIC/g' src/Makefile
